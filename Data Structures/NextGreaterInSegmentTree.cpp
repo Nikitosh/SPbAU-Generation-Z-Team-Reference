@@ -1,5 +1,4 @@
 //на позиции строго большей чем pos число строго большее x
-
 int nextGreaterX(int v, int l, int r, int pos, int x) {
 	if (r <= pos + 1 || tree[v] <= x)
 		return INF;

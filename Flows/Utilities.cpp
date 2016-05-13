@@ -1,8 +1,8 @@
 //for directed unweighted graph
 struct Edge {
-    int v, u, c, f;
-    Edge() {}
-    Edge(int v, int u, int c): v(v), u(u), c(c), f(0) {}
+	int v, u, c, f;
+	Edge() {}
+	Edge(int v, int u, int c): v(v), u(u), c(c), f(0) {}
 };
 
 vector <Edge> edges;
@@ -13,10 +13,10 @@ inline void addFlow(int e, int flow) {
 }
 
 inline void addEdge(int v, int u, int c) {
-    g[v].pb(sz(edges));
-    edges.pb(Edge(v, u, c));
-    g[u].pb(sz(edges));
-    edges.pb(Edge(u, v, 0)); //for undirected 0 should be c
+	g[v].pb(sz(edges));
+	edges.pb(Edge(v, u, c));
+	g[u].pb(sz(edges));
+	edges.pb(Edge(u, v, 0)); //for undirected 0 should be c
 }
 
 void read(int m) {
