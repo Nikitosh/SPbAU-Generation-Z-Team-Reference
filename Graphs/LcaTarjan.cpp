@@ -31,4 +31,4 @@ namespace LcaTarjan {
 			pr[i] = i, ancestor[i] = i, rank[i] = 0;			
 		dfs(0);
   	}
-};
+}
