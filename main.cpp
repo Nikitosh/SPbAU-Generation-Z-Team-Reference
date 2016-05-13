@@ -17,6 +17,7 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
+typedef double dbl;
 typedef unsigned int uint;
 typedef vector <int> vi;
 typedef pair <int, int> pii;
@@ -58,6 +59,8 @@ const int INF_LOG = 30;
 #include "Math/Pollard.cpp"
 #include "Math/Simpson.cpp"
 #include "Math/Gauss.cpp"
+
+#include "BigNum/FFT_ns.cpp"
 
 int main() {
 	return 0;
