@@ -1,5 +1,3 @@
-#include "header.h"
-
 typedef vector<Pnt> vpnt;
 
 inline bool byAngle(const Pnt &a, const Pnt &b){
