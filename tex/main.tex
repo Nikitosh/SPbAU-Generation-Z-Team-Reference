@@ -5,7 +5,7 @@
 \twocolumn
 
 \newcommand{\cpi}[1]{\inputminted[mathescape,tabsize=2,breaklines=true]{cpp}{#1}}
-
+\newcommand{\cpibegin}{\begin{minted}[mathescape,tabsize=2,breaklines=true]{cpp}}
 
 \section{Common}
 
@@ -21,6 +21,8 @@
 
 \section{Big numbers}
 
+\subsection{Big uint}
+\cpi{../BigNum/big_uint.cpp}
 \subsection{FFT}
 \cpi{../BigNum/FFT.cpp}
 \subsection{FFT by mod and FFT with digits up to $10^6$}
@@ -45,6 +47,8 @@
 \include*{DataStructures/NextGreaterInSegmentTree}
 \subsection{Sparse Table}
 \include*{DataStructures/SparseTable}
+\subsection{Treap (Rope)}
+\cpi{../DataStructures/Rope.cpp}
 
 
 \section{Dynamic Programming}
