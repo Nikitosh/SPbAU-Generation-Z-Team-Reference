@@ -4,6 +4,8 @@
 \clearpage
 %\twocolumn
 
+\newcommand{\cpi}[1]{\inputminted[mathescape,tabsize=2]{cpp}{#1}}
+
 
 \section{Common}
 
@@ -15,6 +17,14 @@
 \include*{Common/stress}
 \subsection{Java}
 \include*{Common/java} 
+
+
+\section{Big numbers}
+
+\subsection{FFT}
+\cpi{../BigNum/FFT.cpp}
+\subsection{FFT by mod and FFT with digits up to $10^6$}
+\cpi{../BigNum/FFT_mod_ll.cpp}
 
 
 \section{Data Structures}
@@ -127,13 +137,40 @@
 
 \section{Mix}
 
+\subsection{Fast allocation (operator new)}
+\cpi{../Mix/allocation.cpp}
+\subsection{Fast I/O (short)}
+\cpi{../Mix/fastio_short.cpp}
+\subsection{Fast I/O (long)}
+\cpi{../Mix/fastio_long.cpp}
 \subsection{Masks tricks}
 \include*{Mix/Masks}
+\subsection{Hash of pair}
+\cpi{../Mix/pair_hash.cpp}
 
 
-\section{Big numbers}
 
-\subsection{FFT}
-\inputminted[mathescape,tabsize=2]{cpp}{../BigNum/FFT.cpp}
-\subsection{FFT by mod and FFT with digits up to $10^6$}
-\inputminted[mathescape,tabsize=2]{cpp}{../BigNum/FFT_mod_ll.cpp}
+\section{Strings}
+
+\subsection{Aho-Corasick}
+\include*{Strings/Aho}
+\subsection{Prefix-function}
+\include*{Strings/Prefix}
+\subsection{Z-function}
+\include*{Strings/Z}
+
+\subsection{Hash}
+\cpi{../Strings/Hash.cpp}
+
+\subsection{Manaker}
+\cpi{../Strings/Manaker.cpp}
+\subsection{Palindromic Tree}
+\cpi{../Strings/PalindromicTree.cpp}
+
+\subsection{Suffix Array (+stable)}
+\cpi{../Strings/SuffixArray_stable.cpp}
+\subsection{Suffix Automaton}
+\cpi{../Strings/SuffixAutomaton.cpp}
+\subsection{Suffix Tree}
+\cpi{../Strings/SuffixTree.cpp}
+
