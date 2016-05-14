@@ -1,4 +1,4 @@
-\begin{minted}[mathescape]{c}
+\begin{minted}[mathescape,tabsize=2]{c}
 double f(double x) {
 	return x;
 }	
@@ -9,4 +9,28 @@ double simpson(double a, double b, int iterNumber) {
 		res += f(a + h * i) * ((i == 0) || (i == iterNumber) ? 1 : ((i & 1) == 0) ? 2 : 4);
 	return res * h / 3;
 }
+
+//======
+
+double F( double x ) // многочлен, [l, r] - кусочек интегрирования
+{
+  double cx = (l + r) * 0.5 + (r - l) * 0.5 * x;
+  double f = 0;
+  for (int i = maxN - 1; i >= 0; i--)
+    f = f * cx + a[i];
+  return f;
+}
+
+double Simpson() { return (F(-1) + 4 * F(0) + F(1)) / 6; } // наименее точный
+double Runge2() { return (F(-sqrt(1.0 / 3)) + F(sqrt(1.0 / 3))) / 2; }
+double Runge3() { return (F(-sqrt(3.0 / 5)) * 5 + F(0) * 8 + F(sqrt(3.0 / 5)) * 5) / 18; } // самый точный
+
+double Int( func f, double L, double R )
+{
+  double sum = 0, dx = (R - L) / N;
+  for (int i = 0; i < N; i++)
+    l = L + i * dx, r = l + dx, sum += f();
+  return sum * (R - L) / N;
+}
+
 \end{minted}
