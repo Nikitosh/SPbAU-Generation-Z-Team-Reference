@@ -1,3 +1,4 @@
+#undef __STRICT_ANSI__
 #include <bits/stdc++.h>   
 
 using namespace std;
@@ -27,11 +28,13 @@ const int MAX_N = (1 << MAX_LOG);
 const int INF = 1e9;
 const int INF_LOG = 30;
 
-#include "Data Structures/HeavyLightDecomposition.cpp"
-#include "Data Structures/FenwickTree.cpp"
-#include "Data Structures/SparseTable.cpp"
-#include "Data Structures/HashTable.cpp"
-#include "Data Structures/DSU.cpp"
+#include "C++Tricks/Tree.cpp"
+
+#include "DataStructures/HeavyLightDecomposition.cpp"
+#include "DataStructures/FenwickTree.cpp"
+#include "DataStructures/SparseTable.cpp"
+#include "DataStructures/HashTable.cpp"
+#include "DataStructures/DSU.cpp"
 
 #include "DP/LongestIncreasingSubsequence.cpp"
 
