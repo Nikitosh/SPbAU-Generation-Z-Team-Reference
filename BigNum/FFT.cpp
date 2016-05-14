@@ -1,5 +1,5 @@
-typedef complex<dbl> Num;
-/*struct Num{
+//typedef complex<dbl> Num;
+struct Num{
 	dbl x, y;
 	Num(){}
 	Num(dbl _x, dbl _y):x(_x),y(_y){}
@@ -29,7 +29,7 @@ typedef complex<dbl> Num;
 	inline void operator *=(const Num &B){
 		*this = *this * B;
 	}
-};*/
+};
 
 inline Num sqr(const Num &x){ return x * x; }
 inline Num conj(const Num &x){ return Num(x.real(), -x.imag()); }
