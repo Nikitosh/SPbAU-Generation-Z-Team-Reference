@@ -19,7 +19,7 @@ inline bool checkSegInter(const Pnt &a, const Pnt &b, const Pnt &c, const Pnt &d
 
 inline dbl area(vector<Pnt> p){
     dbl s = 0;
-    int n = p.size();
+    int n = sz(p);
     p.pb(p[0]);
     forn(i, n)
         s += p[i + 1] % p[i];
