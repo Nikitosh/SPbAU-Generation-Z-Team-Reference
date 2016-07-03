@@ -54,5 +54,6 @@ void circle_circle(const Circle &a, const Circle &b){
 dbl dist2(Pnt p, Pnt a, Pnt b){
     if ((p - a) * (b - a) < 0) return (p - a).len2();
     if ((p - b) * (a - b) < 0) return (p - b).len2();
-    return fabs((p - a) % (b - a)) / (b - a).len2();
+    dbl d = fabs((p - a) % (b - a));
+    return d * d / (b - a).len2();
 }
