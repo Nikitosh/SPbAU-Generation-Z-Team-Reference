@@ -4,7 +4,7 @@ struct Edge {
 	Edge(int v): to(v), used(0) {}
 };
 
-vector <Edge edges; 
+vector <Edge> edges; 
 vector <int>  g[MAX_N], res, ptr;
 //не забывать чистить ptr
 
