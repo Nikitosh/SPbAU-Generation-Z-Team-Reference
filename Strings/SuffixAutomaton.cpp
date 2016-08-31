@@ -25,7 +25,7 @@ struct SA{
     int add(char ch){
         int p = last, c = ch - 'a';
         last = newV(v[last].len + 1, 0);
-        while(!v[p].next[c])
+        while(p && !v[p].next[c]) //added p &&
             v[p].next[c] = last, p = v[p].suf;
         if(!p)
             v[last].suf = 1;
