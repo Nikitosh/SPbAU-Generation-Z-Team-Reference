@@ -10,11 +10,11 @@ inline int readChar() {
 }
 
 inline int readInt() {
-  int s = 0, c = getchar(), x = 0;
+  int s = 0, c = readChar(), x = 0;
   if (c == '-')
-    s = 1, c = getchar();
+    s = 1, c = readChar();
   while ('0' <= c && c <= '9')
-    x = x * 10 + c - '0', c = getchar();
+    x = x * 10 + c - '0', c = readChar();
   return s ? -x : x;
 }
 
