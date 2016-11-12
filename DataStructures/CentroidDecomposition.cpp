@@ -22,6 +22,7 @@ void calc_in_component(int v, int p, int level) {
 			calc_in_component(to, v, level);
 }
 
+//fill(d, d + n, -1)
 //decompose(0, -1, 0)
 void decompose(int root, int parent, int level) {  
 	find(root, -1, find(root, -1, INF));
