@@ -1,0 +1,36 @@
+Биномиальные коэффициенты:
+
+Теорема Люка для биномиальных коэффициентов:
+Хотим посчитать $C_n^k$, разложим в p-ичной системе счисления, 
+$n = (n_0, n_1, \dots), k = (k_0, k_1, \dots)$.
+$ans = C_{n_0} ^ {k_0} \cdot C_{n_1}^{k_1} \cdot \dots$
+
+Способы вычисления $C_n^k$:
+\begin{enumerate}
+	\item
+	$C_n^k = C_{n-1}^k + C_{n-1}^{k-1}$
+	
+	precalc: $O(n^2)$, query: $O(1)$.
+	
+	\item
+	$C_n^k = \frac{n!}{k!(n - k)!}$, предподсчитываем факториалы
+    
+    precalc: $O(n \log n)$, query: $O(\log n)$
+	
+	\item
+	Теорема Люка
+    
+    precalc: $O(p \log p)$, query: $O(log p)$.
+	
+	\item
+	$C_n^k = C_n^{k-1} \cdot \frac{n - k + 1}{k}$
+
+	\item
+	$C_n^k = \frac{n!}{k!(n - k)!}$, для каждого факториала считаем степень вхождения и остаток
+	
+	precalc: $O(p \log p)$, query: $O(log p)$.
+
+\end{enumerate}
+
+$C_n^{\frac{n}{2}} = \frac{2^n}{\sqrt{\frac{\pi n}{2}}}$
+

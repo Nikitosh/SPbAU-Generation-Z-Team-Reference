@@ -1,0 +1,12 @@
+Табличка с оптимизациями для динамики:
+\begin{table}[H]
+\centering
+\begin{tabular}[scale = 0.8]{|l|l|l|l|l|}
+	\hline
+	Name                            & Original recurrence                                            & Sufficient Condition                             & From                    & To   \\ \hline
+	Convex Hull Optimization 1      & $dp[i] = \min\limits_{j<i} dp[j] + b[j] \cdot a[i]$            & $b[j] \geqslant b[j+1] || a[i] \leqslant a[i+1]$ & $O(n^2)$                & $O(n)$ \\ \hline
+	Convex Hull Optimization 2      & $dp[i][j] = \min\limits_{k<j} dp[i-1][k] + b[k] \cdot a[j]$    & $b[k] \geqslant b[k+1] || a[j] \leqslant a[j+1]$ & $O(kn^2)$               & $O(kn)$   \\ \hline
+	D\&C Optimization               & $dp[i][j] = \min\limits_{k<j} dp[i-1][k] + c[k][j]$            & $p[i,j] \leqslant p[i, j+1]$                     & $O(kn^2)$               & $O(kn \log n)$ \\ \hline
+	Knuth Optimization              & $dp[i][j] = \min\limits_{i<k<j} dp[i][k] + dp[k][j] + c[i][j]$ & $p[i, j-1] \leqslant p[i,j] \leqslant p[i+1, j]$ & $O(n^3)$                & $O(n^2)$ \\ \hline
+\end{tabular}
+\end{table}
