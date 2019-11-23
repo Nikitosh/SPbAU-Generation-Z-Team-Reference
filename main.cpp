@@ -162,10 +162,10 @@ namespace palindromic_tree {
 namespace prefix {
 #include "strings/Prefix.cpp"
 }
-/*
 namespace suffix_array {
 #include "strings/SuffixArray.cpp"
 }
+/*
 namespace suffix_automaton {
 #include "strings/SuffixAutomaton.cpp"
 }

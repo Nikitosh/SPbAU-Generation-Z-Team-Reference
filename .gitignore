@@ -4,3 +4,5 @@
 *.toc
 *.synctex*
 tex/_minted-reference
+main.cpp
+main.exe

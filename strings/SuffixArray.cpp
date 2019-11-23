@@ -1,76 +1,61 @@
-const int MAX_N = 250000;
-
-int n, num[MAX_N + 1];
+int sLen, num[MAX_N + 1];
 char s[MAX_N + 1];
-int p[MAX_N], col[MAX_N], p2[MAX_N], len[MAX_N];
+int p[MAX_N], col[MAX_N], inv[MAX_N], lcp[MAX_N];
 
-void BuildArray(){
+inline int mod(int x) {
+	return (x + sLen) % sLen;
+}
+
+void buildArray(int n) {
+	sLen = n;
 	int ma = max(n, 256);
-	forn(i, n)
+	forn (i, n)
 		col[i] = s[i], p[i] = i;
 
-	for (int k2 = 1; k2 / 2 < n; k2 *= 2){
+	for (int k2 = 1; k2 / 2 < n; k2 *= 2) {
 		int k = k2 / 2;
 		memset(num, 0, sizeof(num));
-		forn(i, n)
+		forn (i, n)
 			num[col[i] + 1]++;
-		forn(i, ma)
+		forn (i, ma) 
 			num[i + 1] += num[i];
-		forn(i, n)
-			p2[num[col[(p[i] - k + n) % n]]++] = (p[i] - k + n) % n;
-
+		forn (i, n) 
+			inv[num[col[mod(p[i] - k)]]++] = mod(p[i] - k);
 		int cc = 0;
-		forn(i, n){
-			if (i && (col[p2[i]] != col[p2[i - 1]] ||
-			col[(p2[i] + k) % n] != col[(p2[i - 1] + k) % n]))
+		forn (i, n) {
+			bool add = col[inv[i]] != col[inv[i - 1]];
+			add |= col[mod(inv[i] + k)] != col[mod(inv[i - 1] + k)];
+			if (i && add) 
 				cc++;
-			num[p2[i]] = cc;
+			num[inv[i]] = cc;
 		}
-		forn(i, n)
-			p[i] = p2[i], col[i] = num[i];
+		forn (i, n) 
+			p[i] = inv[i], col[i] = num[i];
 	}
  
-	// make it stable
 	memset(num, 0, sizeof(num));
-	forn(i, n)
+	forn (i, n)
 		num[col[i] + 1]++;
-	forn(i, ma)
+	forn (i, ma)
 		num[i + 1] += num[i];
-	forn(i, n)
-		p2[num[col[i]]++] = i;
-	forn(i, n)
-		p[i] = p2[i];
-
-	// calc inverse permutation
-	forn(i, n)
-		p2[p[i]] = i;
+	forn (i, n)
+		inv[num[col[i]]++] = i;
+	forn (i, n)
+		p[i] = inv[i];
+	forn (i, n) 
+		inv[p[i]] = i;
 }
 
-void BuildLCP(){
-	int lcp = 0;
-	forn(i, n){
-		int j = p2[i];
-		lcp = max(0, lcp - 1);
-		if (j != n - 1)
-			while (lcp < n && s[(p[j] + lcp) % n] == s[(p[j + 1] + lcp) % n])
-				lcp++;
-		len[j] = lcp;
-		if (j != n - 1 && p[j + 1] == n - 1)
-			lcp = 0;
+void buildLCP(int n) {
+	int len = 0;
+	forn (ind, n){
+		int i = inv[ind];
+		len = max(0, len - 1);
+		if (i != n - 1)
+			while (len < n && s[mod(p[i] + len)] == s[mod(p[i + 1] + len)]) 
+				len++;
+		lcp[i] = len;
+		if (i != n - 1 && p[i + 1] == n - 1) 
+			len = 0;
 	}
-}
-
-int main()
-{
-	scanf("%d%s", &n, s);
-
-	BuildArray();
-	BuildLCP();
-
-	// res = sum of all LCP[i,i+1]
-	LL res = 0;
-	forn(i, n)
-		res += len[i];
-	printf("%.3f\n", (double)res / (n - 1));
-	return 0;
 }
