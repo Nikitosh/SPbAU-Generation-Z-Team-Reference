@@ -1,15 +1,13 @@
-//первая доля - n вершин вторая доля - m вершин
-//нумерация сквозная
-const int MAX_N = 1e5 + 100;
-
+// Первая доля - n вершин, вторая доля - m вершин
+// Нумерация сквозная
 int n, m, paired[2 * MAX_N], used[2 * MAX_N];
-vector <int> g[MAX_N];
+vi g[MAX_N];
 
 bool dfs(int v) {
 	if (used[v])
 		return false;
 	used[v] = 1;
-	for(int to : g[v]) 
+	for (int to : g[v]) 
 		if (paired[to] == -1 || dfs(paired[to])) {
 			paired[to] = v;
 			paired[v] = to;
@@ -20,46 +18,45 @@ bool dfs(int v) {
 
 int kuhn() {
 	int ans = 0;
-	forn(i, n + m)
+	forn (i, n + m)
 		paired[i] = -1;
 	for (int run = 1; run;) { 
 		run = 0;
-		memset(used, 0, sizeof(used));
+		fill(used, used + n + m, 0);
 		forn(i, n) 
-			if (!used[i] && paired[i] == -1 && dfs(i)) {
-				ans++;
-				run = 1;
-			}
+			if (!used[i] && paired[i] == -1 && dfs(i))
+				ans++, run = 1;
 	}
 	return ans;
 }
-//Стартуем из вершин без пары из первой доли, ходим из первой доли, из второй - только по парсочу.
-//Max независимое - A+, B-
-//Min покрытие    - A-, B+ 
 
-vector <int> minCover, maxIndependent;
+// Стартуем из вершин без пары из первой доли, ходим из первой доли, из второй - только по парсочу.
+// Max независимое -- A+, B-
+// Min покрытие    -- A-, B+ 
+
+vi minCover, maxIndependent;
 
 void dfsCoverIndependent(int v) {
 	if (used[v])
 		return;
 	used[v] = 1;
-	for(int to : g[v]) 
+	for (int to : g[v]) 
 		if (!used[to])
 			used[to] = 1, dfsCoverIndependent(paired[to]);
 }
 
-//Сперва Куна
+// Сперва запустить Куна
 void findCoverIndependent() {
-	memset(used, 0, sizeof(used));
-	forn(i, n)
+	fill(used, used + n + m, 0);
+	forn (i, n)
 		if (paired[i] == -1)
 			dfsCoverIndependent(i);
-	forn(i, n)
-		if(used[i])
+	forn (i, n)
+		if (used[i])
 			maxIndependent.pb(i);
 		else
 			minCover.pb(i);
-	forab(i, n, n + m)
+	forab (i, n, n + m)
 		if (used[i])
 			minCover.pb(i);
 		else 

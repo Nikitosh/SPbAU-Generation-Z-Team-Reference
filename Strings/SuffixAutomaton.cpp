@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-
 struct Vx{
     static const int AL = 26;
     int len, suf;

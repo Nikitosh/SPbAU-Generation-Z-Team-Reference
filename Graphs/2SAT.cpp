@@ -1,11 +1,11 @@
-//MAX_N - 2 * vars
-vector <int> g[MAX_N], rg[MAX_N], tsort;
-vector <bool> values;
+// MAX_N - 2 * vars
+vi g[MAX_N], rg[MAX_N], tsort;
+vector<bool> values;
 int used[MAX_N], comp[MAX_N];
 
 void dfs(int v) {
 	used[v] = 1;
-	for(int to : g[v])
+	for (int to : g[v])
 		if (!used[to])
 			dfs(to);
 	tsort.pb(v);
@@ -14,7 +14,7 @@ void dfs(int v) {
 void rdfs(int v, int num) {
 	used[v] = 1;
 	comp[v] = num;
-	for(int to : rg[v]) 
+	for (int to : rg[v]) 
 		if (!used[to])
 			rdfs(to, num);
 }
@@ -25,24 +25,24 @@ void addEdge(int a, int b) {
 	rg[b].pb(a ^ 1);
 	rg[a].pb(b ^ 1);
 }
-//n - удвоенное
-bool sat2(const vector <pii> &v, int n) {
-	forn(i, sz(v)) {
+
+// n - удвоенное
+bool sat(const vector<pii>& v, int n) {
+	forn (i, sz(v))
 		addEdge(v[i].fst, v[i].snd); 
-	}
-	memset(used, 0, sizeof(used));
-	forn(i, n)
+	fill(used, used + n, 0);
+	forn (i, n)
 		if (!used[i])
 			dfs(i);
-	memset(used, 0, sizeof(used));
+	fill(used, used + n, 0);
 	int num = 0;
-	fornr(i, n) {
+	fornr (i, n) {
 		int u = tsort[i];
 		if (!used[u])
 			rdfs(u, num), num++;
 	}
 	values.resize(n);
-	for(int i = 0; i < n; i += 2)
+	for (int i = 0; i < n; i += 2)
 		if (comp[i] == comp[i ^ 1])
 			return 0;
 		else if (comp[i] > comp[i ^ 1])

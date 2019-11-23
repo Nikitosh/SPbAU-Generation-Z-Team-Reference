@@ -1,45 +1,46 @@
+int up[MAX_N], tIn[MAX_N], timer;
+vector<vi> comps;
+vi st;
+
 struct Edge {
 	int to, id;
-	Edge(int aa, int bb) : to(aa), id(bb) {}
+	Edge(int _to, int _id) : to(_to), id(_id) {}
 };
 
-int up[MAX_N], tin[MAX_N], timer;
-vector <Edge> g[MAX_N];
-vector <vector <int>> comp;
-vector <int> st;
+vector<Edge> g[MAX_N];
 
 void newComp(int size = 0) {
-	comp.emplace_back(); // новая пустая
+	comps.emplace_back(); // новая пустая
 	while (sz(st) > size) {
-		comp.back().pb(st.back());
+		comps.back().pb(st.back());
 		st.pop_back();
 	}
 }
 
-void find_bridges(int v, int parentEdge = -1) {
+void findBridges(int v, int parentEdge = -1) {
 	if (up[v]) // уже были
 		return;
-	up[v] = tin[v] = ++timer;
-	st.pb(v); // st - stack
+	up[v] = tIn[v] = ++timer;
+	st.pb(v);
 	for (Edge e : g[v]) {
 		if (e.id == parentEdge)
 			continue;
 		int u = e.to;
-		if (!tin[u]) {
+		if (!tIn[u]) {
 			int size = sz(st);
-			find_bridges(u, e.id) ;
-			if (up[u] > tin[v])
+			findBridges(u, e.id);
+			if (up[u] > tIn[v])
 				newComp(size);
 		}
 		up[v] = min(up[v], up[u]);
 	}
 }
-//после вызова find_bridges newComp() для корня
+
+// после вызова find_bridges newComp() для корня
 void run(int n) {
-	forn(i, n) {
+	forn (i, n) 
 		if (!up[i]) {
-			find_bridges(i);
+			findBridges(i);
 			newComp();
-		}
-	}
+		}	
 }

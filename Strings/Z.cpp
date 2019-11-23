@@ -1,13 +1,13 @@
-//z[i] - с позиции i сколько матчится
-int l = -1, r = -1;
-z[0] = 0;
-for (int i = 1; i < n; i++) {
-	int k = 0;
-	if (r >= i)
-		k = min(z[i - l], r - i);
-	while (i + k < n && s[i + k] == s[k])
-		k++;
-	z[i] = k;
-	if (i + z[i] > r)
-		l = i, r = i + z[i];
+vi z(const string& s) {
+ 	int n = sz(s);
+ 	vi z(n);
+	for (int i = 1, l = 0, r = 0; i < n; i++) {
+		if (i <= r)
+			z[i] = min(r - i + 1, z[i - l]);
+		while (i + z[i] < n && s[z[i]] == s[i + z[i]])
+			z[i]++;
+		if (i + z[i] - 1 > r)
+			l = i, r = i + z[i] - 1;	 	
+	}
+	return z;
 }

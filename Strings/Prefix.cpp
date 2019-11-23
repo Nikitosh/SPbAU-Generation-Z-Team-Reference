@@ -1,11 +1,13 @@
-// pr[len] - для префикса длины len
-int k = 0;
-pr[0] = pr[1] = 0;
-for (int i = 2; i <= n; i++) {
-	k = pr[i - 1];
-	while (k && s[k] != s[i - 1])
-		k = pr[k];
-	if (s[k] == s[i - 1])
-		k++;
-	pr[i] = k;
+vi prefix(const string &s) {
+	int n = sz(s);
+	vi pr(n);
+	forab (i, 1, n + 1) {
+		int j = pr[i - 1];
+		while (j > 0 && s[i] != s[j])
+			j = pr[j - 1];
+		if (s[i] == s[j])
+			j++;
+		pr[i] = j;	
+	}
+	return pr;
 }

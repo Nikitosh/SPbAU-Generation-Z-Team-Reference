@@ -4,9 +4,9 @@ struct Edge {
 	Edge(int v): to(v), used(0) {}
 };
 
-vector <Edge> edges; 
-vector <int>  g[MAX_N], res, ptr;
-//не забывать чистить ptr
+vector<Edge> edges; 
+vi g[MAX_N], res, ptr;
+// не забывать чистить ptr
 
 void dfs(int v) {
 	for(; ptr[v] < sz(g[v]);) {
@@ -14,7 +14,7 @@ void dfs(int v) {
 		if (!edges[id].used) {
 			edges[id].used = edges[id ^ 1].used = 1;
 			dfs(edges[id].to); 
-//			res.pb(id); // для ребер
+			res.pb(id); // для ребер
 		}
 	}
 	res.pb(v); // в res вершины

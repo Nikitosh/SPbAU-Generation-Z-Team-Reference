@@ -1,25 +1,24 @@
-//Гамильтонов цикл - динамика за n2^n
-const int MAX_N = 20;
-vector <int> g[MAX_N];
-int adj[MAX_N], dp[1 << MAX_N];
+// Гамильтонов цикл - динамика за n*2^n
+vi g[MAX_MASK];
+int adj[MAX_MASK], dp[1 << MAX_MASK];
 
-vector <int> hamiltonCycle(int n) {
-	memset(dp, 0, sizeof(dp));
-	forn(v, n) {
+vi hamiltonCycle(int n) {
+	fill(dp, dp + (1 << n), 0);
+	forn (v, n) {
 		adj[v] = 0;
 		for (int to : g[v])
 			adj[v] |= (1 << to);
 	}
 	dp[1] = 1;
-	forn(mask, (1 << n)) {
+	forn (mask, (1 << n)) {
 		forn(v, n)
 			if (mask & (1 << v) && dp[mask ^ (1 << v)] & adj[v])
 				dp[mask] |= (1 << v);
 	}
-	vector <int> ans;
+	vi ans;
 	int mask = (1 << n) - 1, v; 
 	if (dp[mask] & adj[0]) {
-		forab(i, 1, n)
+		forab (i, 1, n)
 			if ((1 << i) & (mask & adj[0]))
 				v = i;
 		ans.pb(v);

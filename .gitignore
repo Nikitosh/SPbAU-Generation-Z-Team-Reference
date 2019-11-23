@@ -2,4 +2,5 @@
 *.idx
 *.log
 *.toc
-*.synctex
+*.synctex*
+tex/_minted-reference
