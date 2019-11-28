@@ -11,28 +11,23 @@ struct Edge {
 vector<Edge> edges;
 
 inline void addFlow(int e, int flow) {
-	edges[e].f += flow;
-	edges[e ^ 1].f -= flow;
+	edges[e].f += flow, edges[e ^ 1].f -= flow;
 }
 
 inline void addEdge(int v, int u, int c, int w) {
-	g[v].pb(sz(edges));
-	edges.pb(Edge(v, u, c, w));
-	g[u].pb(sz(edges));
-	edges.pb(Edge(u, v, 0, -w));
+	g[v].pb(sz(edges)), edges.pb(Edge(v, u, c, w));
+	g[u].pb(sz(edges)), edges.pb(Edge(u, v, 0, -w));
 }
 
 int dijkstra(int n, int s, int t) {
-	forn (i, n)
-		used[i] = 0, d[i] = INF;
+	forn (i, n) used[i] = 0, d[i] = INF;
 	d[s] = 0;
 	while (1) {
 		int v = -1;
 		forn (i, n)
 			if (!used[i] && (v == -1 || d[v] > d[i]))
 				v = i;
-		if (v == -1 || d[v] == INF)
-			break;
+		if (v == -1 || d[v] == INF) break;
 		used[v] = 1;
 		for (int edge : g[v]) {
 			auto &e = edges[edge];
@@ -41,20 +36,15 @@ int dijkstra(int n, int s, int t) {
 				d[e.u] = d[v] + w, pr[e.u] = edge;	
 		}
 	}
-	if (d[t] == INF)
-		return d[t];
-	forn (i, n)
-		pot[i] += d[i];
+	if (d[t] == INF) return d[t];
+	forn (i, n) pot[i] += d[i];
 	return pot[t];
 }
 
 int fordBellman(int n, int s, int t) {
-	forn (i, n)		
-		d[i] = INF;
+	forn (i, n) d[i] = INF;
 	int head = 0, tail = 0;
-	d[s] = 0;
-	q[tail++] = s;
-	in[s] = 1;
+	d[s] = 0, q[tail++] = s, in[s] = 1;
 	while (tail - head > 0) {
 		int v = q[head++];
 		in[v] = 0;

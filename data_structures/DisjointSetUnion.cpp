@@ -6,8 +6,7 @@ int get(int v) {
 
 bool unite(int v, int u) {
 	v = get(v), u = get(u);
-	if (v == u) 
-		return 0;
+	if (v == u) return 0;
 	pr[u] = v;
 	return 1;
 }

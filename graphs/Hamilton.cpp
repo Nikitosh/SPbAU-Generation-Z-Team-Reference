@@ -10,11 +10,10 @@ vi hamiltonCycle(int n) {
 			adj[v] |= (1 << to);
 	}
 	dp[1] = 1;
-	forn (mask, (1 << n)) {
+	forn (mask, (1 << n)) 
 		forn(v, n)
 			if (mask & (1 << v) && dp[mask ^ (1 << v)] & adj[v])
 				dp[mask] |= (1 << v);
-	}
 	vi ans;
 	int mask = (1 << n) - 1, v; 
 	if (dp[mask] & adj[0]) {

@@ -4,11 +4,9 @@ const int MAX_N = 1e5;
 struct Node {
 	int next[ALPHA], term; // Бор
 	int go[ALPHA], suf, p, pCh; // Автомат
-	Node() {
+	Node(): term(0), suf(-1), p(-1) {
 		fill(next, next + ALPHA, -1);
 		fill(go, go + ALPHA, -1);
-		term = 0;
-		suf = p = -1;
 	}
 };
 
@@ -20,8 +18,7 @@ void add(const string &s) {
 	for(char x : s) { 
 		if (g[now].next[x - 'a'] == -1) {
 			g[now].next[x - 'a'] = ++last;
-			g[last].p = now;
-			g[last].pCh = x;
+			g[last].p = now, g[last].pCh = x;
 		} 
 		now = g[now].next[x - 'a'];
 	}
@@ -32,20 +29,16 @@ int go(int v, int c);
 
 int getLink(int v) {
 	if (g[v].suf == -1) { 
-		if (!v || !g[v].p)
-			g[v].suf = 0;
-		else
-			g[v].suf = go(getLink(g[v].p), g[v].pCh);
+		if (!v || !g[v].p) g[v].suf = 0;
+		else g[v].suf = go(getLink(g[v].p), g[v].pCh);
 	}
 	return g[v].suf;
 }
 
 int go(int v, int c) {
 	if (g[v].go[c] == -1) {
-		if (g[v].next[c] != -1)
-			g[v].go[c] = g[v].next[c];
-		else
-			g[v].go[c] = !v ? 0 : go(getLink(v), c);
+		if (g[v].next[c] != -1) g[v].go[c] = g[v].next[c];
+		else g[v].go[c] = !v ? 0 : go(getLink(v), c);
 	}
 	return g[v].go[c];
 }

@@ -7,8 +7,7 @@ int gcd(int a, int b, int &x, int &y) {
 		x = 1, y = 0; 
 		return a;
 	}
-	int g = gcd(b, a % b, x, y);
-	int newX = y;
+	int g = gcd(b, a % b, x, y), newX = y;
 	y = x - a / b * y;
 	x = newX;
 	return g;
@@ -16,8 +15,7 @@ int gcd(int a, int b, int &x, int &y) {
 
 void diophant(int a, int b, int c, int &x, int &y) {
 	int g = gcd(a, b, x, y);
-	if (c % g != 0)
-		return;
+	if (c % g != 0) return;
 	x *= c / g, y *= c / g;
 	// next solutions: x += b / g, y -= a / g
 }

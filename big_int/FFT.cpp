@@ -1,6 +1,3 @@
-const int LOG = 18;
-const int MAX_N = 1 << LOG;
-
 int rev[MAX_N];
 
 //typedef complex<dbl> Num;
@@ -8,31 +5,15 @@ struct Num {
 	dbl x, y;
 	Num() {}
 	Num(dbl _x, dbl _y): x(_x), y(_y) {}
-
 	inline dbl real() const { return x; }
 	inline dbl imag() const { return y; }
-
-	inline Num operator+(const Num &B) const {
-		return Num(x + B.x, y + B.y);
-	}
-	inline Num operator-(const Num &B) const {
-		return Num(x - B.x, y - B.y);
-	}
-	inline Num operator*(dbl k) const {
-		return Num(x * k, y * k);
-	}
-	inline Num operator*(const Num &B) const {
-		return Num(x * B.x - y * B.y, x * B.y + y * B.x);
-	}
-	inline void operator+=(const Num &B) {
-		x += B.x, y += B.y;
-	}
-	inline void operator/=(dbl k) {
-		x /= k, y /= k;
-	}
-	inline void operator*=(const Num &B) {
-		*this = *this * B;
-	}
+	inline Num operator+(const Num &B) const { return Num(x + B.x, y + B.y); }
+	inline Num operator-(const Num &B) const { return Num(x - B.x, y - B.y); }
+	inline Num operator*(dbl k) const { return Num(x * k, y * k); }
+	inline Num operator*(const Num &B) const { return Num(x * B.x - y * B.y, x * B.y + y * B.x); }
+	inline void operator+=(const Num &B) { x += B.x, y += B.y; }
+	inline void operator/=(dbl k) { x /= k, y /= k; }
+	inline void operator*=(const Num &B) { *this = *this * B; }
 };
 
 Num rt[MAX_N];

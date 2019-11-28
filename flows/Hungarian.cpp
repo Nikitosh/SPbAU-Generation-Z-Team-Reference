@@ -18,7 +18,7 @@ vi Hungarian(int n) {
 						d[j] = tmp, la[j] = l0;
 					if (d[j] < minn)
 						minn = d[j], l = j;
-			}
+				}
 			forn (j, n + 1)
 				if (u[j])
 					col[j] += minn, row[pa[j]] -= minn;

@@ -4,20 +4,18 @@ const int N = 2e5;
 
 struct Pnt {
 	int x, y, i;
-	bool operator <(const Pnt &p) const{
-		return mp(y, i) < mp(p.y, p.i);
-	}
+	bool operator <(const Pnt &p) const { return mp(y, i) < mp(p.y, p.i); }
 };
 
-LL d2 = 8e18, d = (LL)sqrt(d2) + 1;
+ll d2 = 8e18, d = (ll) sqrt(d2) + 1;
 Pnt p[N];
 
-inline LL sqr(int x){
+inline ll sqr(int x){
 	return (LL)x * x;
 }
 
 inline void relax(const Pnt &a, const Pnt &b){
-	LL tmp = sqr(a.x - b.x) + sqr(a.y - b.y);
+	ll tmp = sqr(a.x - b.x) + sqr(a.y - b.y);
 	if (tmp < d2)
 		d2 = tmp, d = (LL)(sqrt(d2) + 1 - 1e-9); // round up
 }

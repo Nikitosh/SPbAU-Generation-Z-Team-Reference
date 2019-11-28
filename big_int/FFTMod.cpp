@@ -12,9 +12,8 @@ void mult(int *a, int *b, int *r, int n, int mod) {
 		int x = int(b[i] % mod);
 		tb[i] = Num(x & tw, x >> HALF);
 	}
-	fft(ta, n);
-	fft(tb, n);
-
+	
+	fft(ta, n), fft(tb, n);
 	forn (i, n) {
 		int j = (n - i) & (n - 1);
 		Num a1 = (ta[i] + conj(ta[j])) * Num(0.5, 0);
@@ -25,9 +24,7 @@ void mult(int *a, int *b, int *r, int n, int mod) {
 		tg[j] = a1 * b2 + a2 * b1;
 	}
 	
-	fft(tf, n);
-	fft(tg, n);
-
+	fft(tf, n), fft(tg, n);
 	forn (i, n) {
 		ll aa = ll(tf[i].x + 0.5);
 		ll bb = ll(tg[i].x + 0.5);
@@ -40,9 +37,7 @@ int tc[MAX_N], td[MAX_N];
 
 const int MOD1 = 1.5e9, MOD2 = MOD1 + 1;
 void multLL(int *a, int *b, ll *r, int n){
-	mult(a, b, tc, n, MOD1);
-	mult(a, b, td, n, MOD2);
-
+	mult(a, b, tc, n, MOD1), mult(a, b, td, n, MOD2);
 	forn(i, n)
 		r[i] = tc[i] + (td[i] - tc[i] + (ll)MOD2) * MOD1 % MOD2 * MOD1;
 }

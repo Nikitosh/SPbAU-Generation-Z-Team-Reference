@@ -15,10 +15,8 @@ void fordBellman(int s, int n) {
 	d[0][s] = 0;
 	forab (i, 1, n + 1) 
 		for (auto &e : edges) 
-			if (d[i - 1][e.a] < INF && d[i][e.b] > d[i - 1][e.a] + e.w) {
-				d[i][e.b] = d[i - 1][e.a] + e.w;
-				p[i][e.b] = e.a; 
-			}
+			if (d[i - 1][e.a] < INF && d[i][e.b] > d[i - 1][e.a] + e.w) 
+				d[i][e.b] = d[i - 1][e.a] + e.w, p[i][e.b] = e.a; 
 }
 
 ld karp(int n) {
@@ -33,15 +31,12 @@ ld karp(int n) {
 			ld curAns = -INF;
 			int curPos = -1;
 			forn(k, n)
-				if (curAns <= (d[n][v] - d[k][v]) * (ld) (1) / (n - k)) {
-					curAns = (d[n][v] - d[k][v]) * (ld) (1) / (n - k);
-					curPos = k;
-				}
+				if (curAns <= (d[n][v] - d[k][v]) * (ld) (1) / (n - k))
+					curAns = (d[n][v] - d[k][v]) * (ld) (1) / (n - k), curPos = k;
 			if (ansValue > curAns)
 				ansValue = curAns, dist = curPos, curV = v;
 		}
-	if (curV == -1)
-		return ansValue;
+	if (curV == -1) return ansValue;
 	for (int iter = n; iter != dist; iter--)
 		ans.pb(curV), curV = p[iter][curV];
 	reverse(all(ans));

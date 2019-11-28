@@ -2,9 +2,7 @@ const int ALPHA = 26;
 
 struct Vertex {
 	int suf, len, next[ALPHA];
-	Vertex() {
-		fill(next, next + ALPHA, 0);		
-	}
+	Vertex() { fill(next, next + ALPHA, 0); }
 };
 
 int vn, v;
@@ -24,8 +22,7 @@ void add(int ch) {
 	int& r = t[v].next[ch];
 	if (!r) {
 		t[vn].len = t[v].len + 2;
-		if (!v)
-			t[vn].suf = 1;
+		if (!v) t[vn].suf = 1;
 		else {
 			v = t[v].suf;
 			while (v != 0 && ch != get(n - t[v].len - 2)) 

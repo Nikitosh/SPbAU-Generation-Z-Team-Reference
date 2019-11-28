@@ -71,15 +71,10 @@ void dfs(int v, int p) {
 }
 
 void build(int v) {
-	if (v == 0 || size[v] * 2 < size[pr[v]]) {
-		top[curPath] = v;
-		comp[v] = curPath;
-		num[v] = 0;
-		curPath++;
-	} else {
-		comp[v] = comp[pr[v]];
-		num[v] = num[pr[v]] + 1;
-	}
+	if (v == 0 || size[v] * 2 < size[pr[v]]) 
+		top[curPath] = v, comp[v] = curPath, num[v] = 0, curPath++;
+	else
+		comp[v] = comp[pr[v]], num[v] = num[pr[v]] + 1;
 	lst[comp[v]].pb(v);
 	for (int u : g[v])
 		if (u != pr[v])

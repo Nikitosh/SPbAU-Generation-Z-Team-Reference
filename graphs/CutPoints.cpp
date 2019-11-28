@@ -16,10 +16,8 @@ int dfs(int v, int parent = -1) {
 		int u = p.to, id = p.id;
 		if (id != parent) {
 			int t, size = sz(st);
-			if (!used[id]) {
-				st.push_back(id);
-				used[id] = 1;
-			}
+			if (!used[id])
+				used[id] = 1, st.push_back(id);
 			if (!tIn[u]) { // not visited yet
 				t = dfs(u, id);
 				if (t >= tIn[v]) {

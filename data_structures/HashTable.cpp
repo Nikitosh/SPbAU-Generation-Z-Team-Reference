@@ -5,15 +5,13 @@ int data[HT_SIZE + HT_SIZE_ADD];
 
 int get(const H &hash){
 	int k = ((ll) hash) & HT_AND;
-	while (ht[k] && ht[k] != hash)
-		++k;
+	while (ht[k] && ht[k] != hash) ++k;
 	return k;	
 }
 
 void insert(const H &hash, int x){
 	int k = get(hash);
-	if (!ht[k])
-		ht[k] = hash, data[k] = x;
+	if (!ht[k]) ht[k] = hash, data[k] = x;
 }
 
 bool count(const H &hash, int x){

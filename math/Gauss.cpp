@@ -9,11 +9,9 @@ int gauss(double **a, int n, int m) { // n is number of equations, m is number o
 		for (int i = row; i < n; i++)
 			if (abs(a[i][col]) > abs(a[best][col]))
 				best = i;
-		if (abs(a[best][col]) < EPS)
-			continue;
+		if (abs(a[best][col]) < EPS) continue;
 		par[col] = row;
-		forn (i, m + 1)
-			swap(a[row][i], a[best][i]);
+		forn (i, m + 1) swap(a[row][i], a[best][i]);
 		forn (i, n)
 			if (i != row) {
 				double k = a[i][col] / a[row][col];
@@ -24,10 +22,8 @@ int gauss(double **a, int n, int m) { // n is number of equations, m is number o
 	}
 	int single = 1;
 	forn (i, m)
-		if (par[i] != -1)
-			ans[i] = a[par[i]][m] / a[par[i]][i];
-		else
-			single = 0;
+		if (par[i] != -1) ans[i] = a[par[i]][m] / a[par[i]][i];
+		else single = 0;
 	forn (i, n) {
 		double cur = 0;
 		for (int j = 0; j < m; j++)

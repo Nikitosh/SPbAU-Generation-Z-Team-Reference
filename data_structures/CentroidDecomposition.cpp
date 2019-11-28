@@ -10,8 +10,7 @@ int find(int v, int p, int total) {
 			if (s > total / 2) ok = 0;
 			size += s;
 		}
-	if (ok && size > total / 2) 
-		centroid = v;
+	if (ok && size > total / 2) centroid = v;
 	return size;
 }
 
@@ -27,8 +26,7 @@ void calcInComponent(int v, int p, int level) {
 void decompose(int root, int parent, int level) {  
 	find(root, -1, find(root, -1, INF));
 	int c = centroid;
-	par[c] = parent;
-	d[c] = level;
+	par[c] = parent, d[c] = level;
 	calcInComponent(centroid, -1, level);
 	for (int to : g[c])
 		if (d[to] == -1)
