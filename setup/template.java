@@ -1,6 +1,3 @@
-Java template:
-
-\begin{minted}[mathescape,tabsize=2,breaklines=true]{java}
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -94,4 +91,3 @@ public class Main {
 		new Main().run();
 	}
 }
-\end{minted}

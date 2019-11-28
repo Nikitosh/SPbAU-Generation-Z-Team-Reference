@@ -1,10 +1,10 @@
 \counterwithout{subsection}{section}
 
-\tableofcontents
-\clearpage
 \twocolumn
 
 \newcommand{\cpi}[1]{\inputminted[mathescape,tabsize=2,breaklines=true]{cpp}{#1}}
+\newcommand{\jpi}[1]{\inputminted[mathescape,tabsize=2,breaklines=true]{java}{#1}}
+\newcommand{\bpi}[1]{\inputminted[mathescape,tabsize=2,breaklines=true]{bash}{#1}}
 \newcommand{\cpibegin}{\begin{minted}[mathescape,tabsize=2,breaklines=true]{cpp}}
 
 \section{Common}
@@ -12,11 +12,11 @@
 \subsection{Setup}
 \include*{Common/setup}
 \subsection{Template}
-\include*{Common/template}
+\cpi{../setup/template.cpp}
 \subsection{Stress}
-\include*{Common/stress}
+\bpi{../setup/stress.cmd}
 \subsection{Java}
-\include*{Common/java} 
+\jpi{../setup/template.java}
 
 
 \section{Big numbers}
@@ -49,8 +49,8 @@
 \cpi{../data_structures/SparseTable.cpp}
 \subsection{Fenwick Tree 2D}
 \cpi{../data_structures/FenwickTree2D.cpp}
-%\subsection{Segtree 2D --- Fenwick}
-%\cpi{../data_structures/segtree2d_fenwick.cpp}
+\subsection{Segment Tree 2D}
+\cpi{../data_structures/SegmentTree2D.cpp}
 
 
 \section{Dynamic Programming}
