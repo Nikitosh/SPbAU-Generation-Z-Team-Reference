@@ -27,7 +27,7 @@ int power(int a, int n, int mod) {
 
 ll powerLL(ll a, ll n, ll mod) {
 	if (!n) return 1;
-	ll b = power(a, n / 2, mod);
+	ll b = powerLL(a, n / 2, mod);
 	b = mul(b, b, mod);
 	return n & 1 ? mul(a, b, mod) : b; 
 }
