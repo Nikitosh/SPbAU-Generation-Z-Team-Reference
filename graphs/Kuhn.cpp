@@ -1,5 +1,5 @@
-// Первая доля - n вершин, вторая доля - m вершин
-// Нумерация сквозная
+// sz(LEFT) = n, sz(RIGHT) = m
+// numbered consequently
 int n, m, paired[2 * MAX_N], used[2 * MAX_N];
 vi g[MAX_N];
 
@@ -27,9 +27,9 @@ int kuhn() {
 	return ans;
 }
 
-// Стартуем из вершин без пары из первой доли, ходим из первой доли, из второй - только по парсочу.
-// Max независимое -- A+, B-
-// Min покрытие    -- A-, B+ 
+// Start from unpaired vertex in Left part, go from Left anywhere, from Right only to pair
+// Max Independent -- A+, B-
+// Min Cover       -- A-, B+ 
 
 vi minCover, maxIndependent;
 
@@ -41,7 +41,7 @@ void dfsCoverIndependent(int v) {
 			used[to] = 1, dfsCoverIndependent(paired[to]);
 }
 
-// Сперва запустить Куна
+// Kuhn first!
 void findCoverIndependent() {
 	fill(used, used + n + m, 0);
 	forn (i, n)

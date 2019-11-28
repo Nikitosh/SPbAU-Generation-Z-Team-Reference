@@ -13,7 +13,7 @@ vpnt convexHull(vpnt p) {
 	p[i] = p[i] - p[0];
 	sort(p.begin() + 1, p.end(), byAngle);
 
-/*	Если надо оставить развёрнутые углы, нужно (1) и (2)
+/*	To keep 180 angles (1) и (2)
 	(1):
 	int k = p.size() - 1;
 	while(k > 0 && eq((p[k - 1] - p.back()) % p.back(), 0))

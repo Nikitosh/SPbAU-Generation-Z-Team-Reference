@@ -6,7 +6,7 @@ struct Edge {
 
 vector<Edge> edges; 
 vi g[MAX_N], res, ptr;
-// не забывать чистить ptr
+// don't forget to clear ptr!
 
 void dfs(int v) {
 	for(; ptr[v] < sz(g[v]);) {
@@ -14,8 +14,8 @@ void dfs(int v) {
 		if (!edges[id].used) {
 			edges[id].used = edges[id ^ 1].used = 1;
 			dfs(edges[id].to); 
-			res.pb(id); // для ребер
+			res.pb(id); // edges
 		}
 	}
-	res.pb(v); // в res вершины
+	res.pb(v); // res contains vertices
 }

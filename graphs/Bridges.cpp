@@ -10,7 +10,7 @@ struct Edge {
 vector<Edge> g[MAX_N];
 
 void newComp(int size = 0) {
-	comps.emplace_back(); // новая пустая
+	comps.emplace_back(); // new empty
 	while (sz(st) > size) {
 		comps.back().pb(st.back());
 		st.pop_back();
@@ -18,7 +18,7 @@ void newComp(int size = 0) {
 }
 
 void findBridges(int v, int parentEdge = -1) {
-	if (up[v]) // уже были
+	if (up[v]) // visited
 		return;
 	up[v] = tIn[v] = ++timer;
 	st.pb(v);
@@ -36,7 +36,7 @@ void findBridges(int v, int parentEdge = -1) {
 	}
 }
 
-// после вызова find_bridges newComp() для корня
+// after find_bridges newComp() for root
 void run(int n) {
 	forn (i, n) 
 		if (!up[i]) {
