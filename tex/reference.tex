@@ -8,12 +8,23 @@
 \renewcommand\textwidth{190mm}
 \vsize=\textheight
 \hsize=\textwidth
-\usepackage[T2A]{fontenc}
+%\usepackage[T2A]{fontenc}
 %\usepackage[utf8]{inputenc}
 %\usepackage[english,russian]{babel}
 %\usepackage[english]{babel}
-\usepackage[russian]{babel}
-\usepackage[utf8]{inputenc}
+%\usepackage[russian]{babel}
+%\usepackage[utf8x]{inputenc
+\usepackage[english,russian]{babel}
+\usepackage{fontspec}
+\setmainfont[
+  Ligatures=TeX,
+  Extension=.otf,
+  UprightFont=*-regular,
+  ItalicFont=*-italic,
+  BoldFont=*-bold,
+  BoldItalicFont=*-bolditalic,
+]{xits}
+\usepackage{cmap}
 \usepackage{olymp}
 \usepackage{color}
 \usepackage{listings}
@@ -22,6 +33,7 @@
 \usepackage{newclude}
 \usepackage{epsfig}
 \usepackage{minted}
+\usepackage{amssymb}
 %\usepackage[left=cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm,textheight=252mm,textwidth=190mm]{geometry}
 %\pagestyle{empty}
 %\def\bf{\usefont{T2A}{lcmss}{b}{n}\fontsize{5}{10.4}\selectfont}
