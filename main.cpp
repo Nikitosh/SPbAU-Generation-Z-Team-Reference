@@ -58,6 +58,9 @@ namespace disjoint_set_union {
 namespace fenwick_tree {
 #include "data_structures/FenwickTree.cpp"
 }
+namespace fenwick_tree_2d {
+#include "data_structures/FenwickTree2D.cpp"
+}
 namespace hash_table {
 #include "data_structures/HashTable.cpp"
 }
