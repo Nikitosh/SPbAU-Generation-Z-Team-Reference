@@ -149,7 +149,7 @@ struct BigInt {
 			stream << setw(BASE_DIGITS) << setfill('0') << v.z[i];
 		return stream;
 	}
-    static vi convertBase(const vi& a, int oldDigits, int newDigits) {
+	static vi convertBase(const vi& a, int oldDigits, int newDigits) {
 		vector<ll> p(max(oldDigits, newDigits) + 1);
 		p[0] = 1;
 		for (int i = 1; i < sz(p); i++)
@@ -170,7 +170,7 @@ struct BigInt {
 		while (!res.empty() && res.back() == 0) res.pop_back();
 		return res;
 	}
-    static vll karatsubaMultiply(const vll& a, const vll& b) {
+	static vll karatsubaMultiply(const vll& a, const vll& b) {
 		int n = sz(a);
 		vll res(n + n);
 		if (n <= 32) {
@@ -196,7 +196,7 @@ struct BigInt {
 		forn (i, sz(a2b2)) res[i + n] += a2b2[i];
 		return res;
 	}
-    BigInt operator*(const BigInt& v) const {
+	BigInt operator*(const BigInt& v) const {
 		vi a6 = convertBase(this->z, BASE_DIGITS, 6);
 		vi b6 = convertBase(v.z, BASE_DIGITS, 6);
 		vll a(all(a6)), b(all(b6));
