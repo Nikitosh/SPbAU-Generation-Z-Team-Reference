@@ -50,9 +50,6 @@ namespace pair_hasher {
 #include "cpp_tricks/PairHasher.cpp"
 }
 
-namespace chinese {
-#include "graphs/2chinese.cpp"
-}
 namespace centroid_decomposition {
 #include "data_structures/CentroidDecomposition.cpp"
 }
@@ -149,6 +146,9 @@ namespace lca {
 }
 namespace lca_tarjan {
 #include "graphs/LcaTarjan.cpp"
+}
+namespace chinese {
+#include "graphs/2chinese.cpp"
 }
 
 namespace math {
