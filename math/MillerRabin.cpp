@@ -8,7 +8,7 @@ bool isPrimeMillerRabin(ll n) {
 		ll g = __gcd(n, (ll) p);
 		if (g > 1 && g < n) return 0;
 		if (g == n) return 1;
-		ll b = power(p, t, n), last = n - 1;
+		ll b = powerLL(p, t, n), last = n - 1;
 		bool was = 0;
 		forn (i, k + 1) {
 			if (b == 1 && last != n - 1)
