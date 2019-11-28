@@ -50,6 +50,9 @@ namespace pair_hasher {
 #include "cpp_tricks/PairHasher.cpp"
 }
 
+namespace chinese {
+#include "graphs/2chinese.cpp"
+}
 namespace centroid_decomposition {
 #include "data_structures/CentroidDecomposition.cpp"
 }
@@ -203,13 +206,7 @@ namespace geometry {
 namespace closest_points{
 #include "geometry/ClosestPoints_SweepLine.cpp"
 }
-// TO ADD:
-// * BigInt
-// * 2D Segment tree
-// * 2D Fenwick tree
-// * Treap
-// * Suffix structures
-         
+
 int main() {
 	return 0;
 }
