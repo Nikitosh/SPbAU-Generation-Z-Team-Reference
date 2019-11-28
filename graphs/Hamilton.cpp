@@ -1,4 +1,4 @@
-// Гамильтонов цикл - динамика за n*2^n
+// DP in O(n*2^n) for Ham cycle
 vi g[MAX_MASK];
 int adj[MAX_MASK], dp[1 << MAX_MASK];
 
