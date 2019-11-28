@@ -15,6 +15,7 @@ using namespace std;
 using ll = long long;
 using dbl = double;
 using vi = vector<int>;
+using vll = vector<ll>;
 using pii = pair<int, int>;
 using ld = long double;
  
@@ -28,6 +29,9 @@ const int INF = 1e9;
 const int INF_LOG = 30;
 const double PI = acos(-1);
 
+namespace big_int {
+#include "big_int/BigInt.cpp"
+}
 namespace fft {
 #include "big_int/FFT.cpp"
 #include "big_int/FFTMod.cpp"
@@ -69,6 +73,9 @@ namespace heavy_light_decomposition {
 }
 namespace next_greater_in_segment_tree {
 #include "data_structures/NextGreaterInSegmentTree.cpp"
+}
+namespace segment_tree_2d {
+#include "data_structures/SegmentTree2D.cpp"
 }
 namespace sparse_table {
 #include "data_structures/SparseTable.cpp"
@@ -174,26 +181,16 @@ namespace prefix {
 namespace suffix_array {
 #include "strings/SuffixArray.cpp"
 }
-/*
 namespace suffix_automaton {
 #include "strings/SuffixAutomaton.cpp"
 }
 namespace suffix_tree {
 #include "strings/SuffixTree.cpp"
 }
-*/
 namespace z {
 #include "strings/Z.cpp"
 }
 
-// TO ADD:
-// * BigInt
-// * 2D Segment tree
-// * 2D Fenwick tree
-// * Treap
-// * Geometry
-// * Suffix structures
-         
 int main() {
 	return 0;
 }
