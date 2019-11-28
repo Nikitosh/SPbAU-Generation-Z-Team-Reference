@@ -50,9 +50,6 @@ namespace pair_hasher {
 #include "cpp_tricks/PairHasher.cpp"
 }
 
-namespace chinese {
-#include "graphs/2chinese.cpp"
-}
 namespace centroid_decomposition {
 #include "data_structures/CentroidDecomposition.cpp"
 }
@@ -123,6 +120,9 @@ namespace sat {
 namespace bridges {
 #include "graphs/Bridges.cpp"
 }
+namespace cactus {
+#include "graphs/Cactus.cpp"
+}
 namespace cut_points {
 #include "graphs/CutPoints.cpp"
 }
@@ -146,6 +146,9 @@ namespace lca {
 }
 namespace lca_tarjan {
 #include "graphs/LcaTarjan.cpp"
+}
+namespace chinese {
+#include "graphs/2chinese.cpp"
 }
 
 namespace math {
@@ -203,13 +206,7 @@ namespace geometry {
 namespace closest_points{
 #include "geometry/ClosestPoints_SweepLine.cpp"
 }
-// TO ADD:
-// * BigInt
-// * 2D Segment tree
-// * 2D Fenwick tree
-// * Treap
-// * Suffix structures
-         
+
 int main() {
 	return 0;
 }
