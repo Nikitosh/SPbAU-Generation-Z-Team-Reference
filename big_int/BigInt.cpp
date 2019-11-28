@@ -129,7 +129,7 @@ struct BigInt {
 	void read(const string& s) {
 		sign = 1, z.clear();
 		int pos = 0;
-		while (pos < s.size() && (s[pos] == '-' || s[pos] == '+')) {
+		while (pos < sz(s) && (s[pos] == '-' || s[pos] == '+')) {
 			if (s[pos] == '-') sign = -sign;
 			++pos;
 		}

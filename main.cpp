@@ -120,6 +120,9 @@ namespace sat {
 namespace bridges {
 #include "graphs/Bridges.cpp"
 }
+namespace cactus {
+#include "graphs/Cactus.cpp"
+}
 namespace cut_points {
 #include "graphs/CutPoints.cpp"
 }
