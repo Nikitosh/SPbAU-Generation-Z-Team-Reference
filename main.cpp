@@ -38,6 +38,7 @@ namespace fast_io_long {
 namespace fast_io_short {
 #include "cpp_tricks/FastIOShort.cpp"
 }
+#include "cpp_tricks/HashMap.cpp"
 #include "cpp_tricks/OrderedSet.cpp"
 namespace pair_hasher {
 #include "cpp_tricks/PairHasher.cpp"
@@ -109,6 +110,9 @@ namespace bridges {
 }
 namespace cut_points {
 #include "graphs/CutPoints.cpp"
+}
+namespace euler_tour_tree {
+#include "graphs/EulerTourTree.cpp"
 }
 namespace eulerian_cycle {
 #include "graphs/EulerianCycle.cpp"
