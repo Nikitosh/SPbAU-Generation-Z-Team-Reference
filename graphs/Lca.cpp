@@ -18,8 +18,7 @@ int isUpper(int v, int u) {
 }
 
 int lca(int v, int u) {
-	if (isUpper(u, v))
-		return u;
+	if (isUpper(u, v)) return u;
 	fornr (i, MAX_LOG) 
 		if (!isUpper(up[u][i], v))
 			u = up[u][i];

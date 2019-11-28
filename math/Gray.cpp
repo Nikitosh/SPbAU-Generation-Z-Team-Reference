@@ -4,7 +4,6 @@ int gray(int n) {
 
 int revGray(int n) {
 	int k = 0;
-	for (; n; n >>= 1)
-		k ^= n;
+	for (; n; n >>= 1) k ^= n;
 	return k;
 }

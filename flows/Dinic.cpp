@@ -1,13 +1,11 @@
 int pr[MAX_N], d[MAX_N], q[MAX_N], first[MAX_N];
 
 int dfs(int v, int can, int toPush, int t) {
-	if (v == t)
-		return can;
+	if (v == t) return can;
 	int sum = 0;
 	for (; first[v] < (int) g[v].size(); first[v]++) {
 		auto &e = edges[g[v][first[v]]];
-		if (d[e.u] != d[v] + 1 || e.c - e.f < toPush)
-			continue;
+		if (d[e.u] != d[v] + 1 || e.c - e.f < toPush) continue;
 		int flow = dfs(e.u, min(can, e.c - e.f), toPush, t);
 		addFlow(g[v][first[v]], flow);
 		can -= flow, sum += flow;
@@ -18,8 +16,7 @@ int dfs(int v, int can, int toPush, int t) {
 }
 
 bool bfs(int n, int s, int t, int curPush) {
-	forn (i, n)
-		d[i] = INF, first[i] = 0;
+	forn (i, n) d[i] = INF, first[i] = 0;
 	int head = 0, tail = 0;
 	q[tail++] = s;
 	d[s] = 0;
@@ -27,10 +24,8 @@ bool bfs(int n, int s, int t, int curPush) {
 		int v = q[head++];
 		for (int edge : g[v]) {
 			auto &e = edges[edge];
-			if (d[e.u] > d[v] + 1 && e.c - e.f >= curPush) {
-				d[e.u] = d[v] + 1;
-				q[tail++] = e.u;
-			}
+			if (d[e.u] > d[v] + 1 && e.c - e.f >= curPush)
+				d[e.u] = d[v] + 1, q[tail++] = e.u;		
 		}
 	}
 	return d[t] != INF;

@@ -18,6 +18,8 @@ using vi = vector<int>;
 using pii = pair<int, int>;
 using ld = long double;
  
+const int MAXVAR = 100;
+const int LOG = 15;
 const int MAX_LOG = 10;
 const int MAX_M = 1e3; 
 const int MAX_N = (1 << MAX_LOG);

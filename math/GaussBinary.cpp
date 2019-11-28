@@ -24,10 +24,8 @@ int gaussBinary(vector<bitset<MAX>> a, int n, int m) {
 	bool ok = 1;
 	forn (i, n) {
 		int cur = 0;
-		forn (j, m)
-			cur ^= (ans[j] & a[i][j]);
-		if (cur != a[i][n])
-			ok = 0;
+		forn (j, m) cur ^= (ans[j] & a[i][j]);
+		if (cur != a[i][n]) ok = 0;
 	}
 	return ok;
 }

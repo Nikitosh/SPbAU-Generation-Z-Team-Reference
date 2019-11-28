@@ -30,9 +30,7 @@ struct H {
 
 H deg[MAX_N], h[MAX_N];
 
-inline H get(int l, int r) {
-	return h[r] - h[l] * deg[r - l];
-}
+inline H get(int l, int r) { return h[r] - h[l] * deg[r - l]; }
 
 void init(const string& s) {
 	int n = sz(s);

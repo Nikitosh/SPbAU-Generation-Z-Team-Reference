@@ -2,12 +2,8 @@ struct Line {
 	int k, b;
 	Line() {}
 	Line(int _k, int _b): k(_k), b(_b) {}
-	ll get(int x) {
-		return b + k * 1ll * x;
-	}
-	bool operator<(const Line &l) const {
-		return k < l.k; // знак на > если в другую сторону
-	}
+	ll get(int x) { return b + k * 1ll * x; }
+	bool operator<(const Line &l) const { return k < l.k; } // знак на > если в другую сторону
 };
 
 // Проверяет, что пересечение (a,b) левее (a,c)
@@ -39,9 +35,7 @@ struct Convex {
 		for(Line &l : lines)
 			add(l);
 	}
-	Convex(Line line) {
-		st.pb(line);
-	}
+	Convex(Line line) { st.pb(line); }
 	Convex(const Convex &a, const Convex &b) {
 		vector<Line> lines;
 		lines.resize(sz(a.st) + sz(b.st));

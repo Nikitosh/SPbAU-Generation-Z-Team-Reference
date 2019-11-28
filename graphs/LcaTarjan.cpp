@@ -7,8 +7,7 @@ int get(int v) {
 
 void unite(int v, int u, int anc) {
 	v = get(v), u = get(u);
-	pr[u] = v;
-	ancestor[v] = anc; 	
+	pr[u] = v, ancestor[v] = anc; 	
 }
 
 void dfs(int v) {
@@ -22,7 +21,6 @@ void dfs(int v) {
 }
 
 void init(int n) {
-	forn (i, n)
-		pr[i] = i, ancestor[i] = i;			
+	forn (i, n) pr[i] = i, ancestor[i] = i;			
 	dfs(0);
 }

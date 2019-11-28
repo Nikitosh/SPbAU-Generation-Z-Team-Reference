@@ -2,16 +2,14 @@ int used[MAX_N], pr[MAX_N];
 int curTime = 1;
 
 int dfs(int v, int can, int toPush, int t) {
-	if (v == t)
-		return can;
+	if (v == t) return can;
 	used[v] = curTime;
 	for (int edge : g[v]) {
 		auto &e = edges[edge];
 		if (used[e.u] != curTime && e.c - e.f >= toPush) {
 			int flow = dfs(e.u, min(can, e.c - e.f), toPush, t);
 			if (flow > 0) {
-				addFlow(edge, flow);
-				pr[e.u] = edge;
+				addFlow(edge, flow), pr[e.u] = edge;
 				return flow;
 			}
 		}
