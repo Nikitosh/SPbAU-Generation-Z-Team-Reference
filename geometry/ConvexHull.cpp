@@ -1,11 +1,11 @@
 typedef vector<Pnt> vpnt;
 
-inline bool byAngle(const Pnt &a, const Pnt &b){
+inline bool byAngle(const Pnt &a, const Pnt &b) {
 	dbl x = a % b;
 	return eq(x, 0) ? a.len2() < b.len2() : x < 0;
 }
 
-vpnt convexHull(vpnt p){
+vpnt convexHull(vpnt p) {
 	int n = sz(p);
 	assert(n > 0);
 	swap(p[0], *min_element(all(p)));

@@ -1,4 +1,4 @@
-int sign(dbl a){ return (a > EPS) - (a < -EPS); }
+int sign(dbl a) { return (a > EPS) - (a < -EPS); }
 
 // Checks, if point is inside the segment
 inline bool inSeg(const Pnt &p, const Pnt &a, const Pnt &b) {
@@ -28,7 +28,7 @@ inline dbl area(vector<Pnt> p){
 }
 
 // Check if point p is inside polygon <n, q[]>
-int contains_slow(Pnt p, Pnt *z, int n){
+int containsSlow(Pnt p, Pnt *z, int n){
     int cnt = 0;
     forn(j, n){
         Pnt a = z[j], b = z[(j + 1) % n];
@@ -43,7 +43,7 @@ int contains_slow(Pnt p, Pnt *z, int n){
 
 //for convex polygon
 //assume polygon is counterclockwise-ordered
-bool contains_fast(Pnt p, Pnt *z, int n) {
+bool containsFast(Pnt p, Pnt *z, int n) {
     Pnt o = z[0];
     if(gr((p - o) % (z[1] - o), 0) || ls((p - o) % (z[n - 1] - o), 0))
         return 0;
@@ -58,10 +58,10 @@ bool contains_fast(Pnt p, Pnt *z, int n) {
     return leq((p - z[l]) % (z[r] - z[l]), 0);
 }
 
-// Checks, if point "i" is in the triangle "abc" IFF triangle in CCW order
-inline int isInTr(int i, int a, int b, int c){
+// Checks, if point "p" is in the triangle "abc" IFF triangle in CCW order
+inline int isInTr(const Pnt &p, const Pnt &a, const Pnt &b, const Pnt &c){
     return
-            gr((p[b] - p[a]) % (p[i] - p[a]), 0) &&
-            gr((p[c] - p[b]) % (p[i] - p[b]), 0) &&
-            gr((p[a] - p[c]) % (p[i] - p[c]), 0);
+            gr((b - a) % (p - a), 0) &&
+            gr((c - b) % (p - b), 0) &&
+            gr((a - c) % (p - c), 0);
 }

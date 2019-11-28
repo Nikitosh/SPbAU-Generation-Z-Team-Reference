@@ -186,12 +186,20 @@ namespace z {
 #include "strings/Z.cpp"
 }
 
+namespace geometry {
+#include "geometry/GeometryBase.cpp"
+#include "geometry/GeometrySimple.cpp"
+#include "geometry/GeometryInterTangent.cpp"
+#include "geometry/ConvexHull.cpp"
+}
+namespace closest_points{
+#include "geometry/ClosestPoints_SweepLine.cpp"
+}
 // TO ADD:
 // * BigInt
 // * 2D Segment tree
 // * 2D Fenwick tree
 // * Treap
-// * Geometry
 // * Suffix structures
          
 int main() {

@@ -1,5 +1,3 @@
-#include "header.h"
-
 const int N = 2e5;
 
 struct Pnt {
@@ -11,13 +9,13 @@ ll d2 = 8e18, d = (ll) sqrt(d2) + 1;
 Pnt p[N];
 
 inline ll sqr(int x){
-	return (LL)x * x;
+	return (ll)x * x;
 }
 
 inline void relax(const Pnt &a, const Pnt &b){
 	ll tmp = sqr(a.x - b.x) + sqr(a.y - b.y);
 	if (tmp < d2)
-		d2 = tmp, d = (LL)(sqrt(d2) + 1 - 1e-9); // round up
+		d2 = tmp, d = (ll)(sqrt(d2) + 1 - 1e-9); // round up
 }
 
 inline bool xless(const Pnt &a, const Pnt &b){

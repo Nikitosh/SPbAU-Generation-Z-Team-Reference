@@ -1,3 +1,5 @@
+inline dbl sqr(dbl x) { return x * x; }
+
 void buildTangent(Pnt p1, dbl r1, Pnt p2, dbl r2, Line &l) { // r1, r2 = radius with sign
     Pnt p = p2 - p1;
     l.c = r1;
@@ -19,9 +21,9 @@ vector<Pnt> v; // to store intersection
 
 // Intersection of two lines
 int line_line(const Line &l, const Line &m){
-    dbl z = m.a * l.b - l.a * m.b,
-            x = m.c * l.b - l.c * m.b,
-            y = m.c * l.a - l.c * m.a;
+    dbl z = m.a * l.b - l.a * m.b;
+	dbl x = m.c * l.b - l.c * m.b;
+	dbl y = m.c * l.a - l.c * m.a;
     if(fabs(z) > EPS){
         v.pb(Pnt(-x/z, y/z));
         return 1;
@@ -32,22 +34,31 @@ int line_line(const Line &l, const Line &m){
 }
 
 // Intersection of Circle and line
-void circle_line(const Circle &c, const Line &l){
+int circle_line(const Circle &c, const Line &l){
     dbl d = l.d(c.p);
     if(fabs(d) > c.r + EPS)
-        return;
-    if(fabs(fabs(d) / c.r - 1) < EPS)
+        return 0;
+    if(fabs(fabs(d) / c.r - 1) < EPS) {
         v.pb(c.p - l.no() * d);
-    else{
+        return 1;
+    } else {
         dbl s = sqrt(fabs(sqr(c.r) - sqr(d)));
         v.pb(c.p - l.no() * d + l.no().getRot90() * s);
         v.pb(c.p - l.no() * d - l.no().getRot90() * s);
+        return 2;
     }
 }
 
-// Intersection of two circles
-void circle_circle(const Circle &a, const Circle &b){
-    circle_line(a, Line((b.p - a.p) * 2, a.p.len2() - b.p.len2() + sqr(b.r) - sqr(a.r)));
+// Intersection of two circles, 3 = inf
+int circle_circle(const Circle &a, const Circle &b) {
+	if (a.p == b.p && eq(a.r, b.r)) 
+		return 3;
+	Pnt diff = b.p - a.p;
+	dbl dist = diff.len();
+	if (ls(a.r + dist, b.r) || ls(b.r + dist, a.r))
+		return 0;
+	Line line(diff.x * 2, diff.y * 2, a.p.len2() - b.p.len2() + sqr(b.r) - sqr(a.r));
+	return circle_line(a, line);
 }
 
 // Squared distance between point p and segment [a..b]
