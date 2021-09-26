@@ -56,6 +56,9 @@ struct Pnt {
     inline void write() const{
         cout << fixed << (double)x << " " << (double)y << '\n';
     }
+    Pnt multBenq(const Pnt& r) const { 
+		return Pnt(x*r.x - y*r.y, y*r.x + x*r.y); 
+	}
 };
 
 struct Line{
