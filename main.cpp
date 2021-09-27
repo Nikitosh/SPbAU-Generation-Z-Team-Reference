@@ -125,6 +125,9 @@ namespace cactus {
 namespace cut_points {
 #include "graphs/CutPoints.cpp"
 }
+namespace dominator_tree {
+#include "graphs/DominatorTree.cpp"
+}
 namespace euler_tour_tree {
 #include "graphs/EulerTourTree.cpp"
 }
@@ -148,6 +151,9 @@ namespace lca_tarjan {
 }
 namespace chinese {
 #include "graphs/2chinese.cpp"
+}
+namespace matroids {
+#include "graphs/MatroidIsect.cpp"
 }
 
 namespace math {
