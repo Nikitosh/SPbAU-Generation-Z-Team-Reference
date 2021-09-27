@@ -176,6 +176,9 @@ namespace math {
 #include "math/Pollard.cpp"
 #include "math/Simpson.cpp"
 }
+namespace berlekamp {
+#include "math/Berlekamp.cpp"
+}
 namespace simplex {
 #include "math/Simplex.cpp"
 }
