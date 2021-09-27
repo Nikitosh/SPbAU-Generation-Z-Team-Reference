@@ -150,6 +150,9 @@ namespace lca_tarjan {
 namespace chinese {
 #include "graphs/2chinese.cpp"
 }
+namespace matroids {
+#include "graphs/MatroidIsect.cpp"
+}
 
 namespace math {
 #include "math/PowerAndMul.cpp"
