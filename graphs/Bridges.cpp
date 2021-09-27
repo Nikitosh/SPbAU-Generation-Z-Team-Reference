@@ -1,4 +1,4 @@
-int up[MAX_N], tIn[MAX_N], timer;
+int up[N], tIn[N], timer;
 vector<vi> comps;
 vi st;
 
@@ -7,7 +7,7 @@ struct Edge {
 	Edge(int _to, int _id) : to(_to), id(_id) {}
 };
 
-vector<Edge> g[MAX_N];
+vector<Edge> g[N];
 
 void newComp(int size = 0) {
 	comps.emplace_back(); // new empty

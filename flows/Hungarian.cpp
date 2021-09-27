@@ -1,5 +1,5 @@
 const int INF = 1e9;
-int a[MAX_N][MAX_N];
+int a[N][N];
 
 // min = sum of a[pa[i],i]
 // you may optimize speed by about 15%, just change all vectors to static arrays

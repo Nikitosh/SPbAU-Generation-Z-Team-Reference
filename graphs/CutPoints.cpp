@@ -1,5 +1,5 @@
-bool used[MAX_M];
-int tIn[MAX_N], timer, isCut[MAX_N], color[MAX_M], compCnt;
+bool used[M];
+int tIn[N], timer, isCut[N], color[M], compCnt;
 vi st;
 
 struct Edge {
@@ -7,7 +7,7 @@ struct Edge {
 	Edge(int _to, int _id) : to(_to), id(_id) {}
 };
 
-vector<Edge> g[MAX_N];
+vector<Edge> g[N];
 
 int dfs(int v, int parent = -1) {
 	tIn[v] = ++timer;

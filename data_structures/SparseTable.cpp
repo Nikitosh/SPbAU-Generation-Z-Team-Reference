@@ -1,5 +1,5 @@
-int st[MAX_N][MAX_LOG];
-int lg[MAX_N];
+int st[N][LOG];
+int lg[N];
 
 int get(int l, int r) { // [l, r)
 	int curLog = lg[r - l];

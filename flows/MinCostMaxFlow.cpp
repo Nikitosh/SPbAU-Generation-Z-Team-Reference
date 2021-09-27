@@ -1,6 +1,5 @@
-const int MAX_M = 1e4;
-int pr[MAX_N], in[MAX_N], q[MAX_N * MAX_M], used[MAX_N], d[MAX_N], pot[MAX_N];
-vi g[MAX_N];
+int pr[N], in[N], q[N * M], used[N], d[N], pot[N];
+vi g[N];
 
 struct Edge {
 	int v, u, c, f, w;

@@ -14,7 +14,7 @@ void insert(const H &hash, int x){
 	if (!ht[k]) ht[k] = hash, data[k] = x;
 }
 
-bool count(const H &hash, int x){
+bool count(const H &hash){
 	int k = get(hash);
 	return ht[k] != 0;
 }

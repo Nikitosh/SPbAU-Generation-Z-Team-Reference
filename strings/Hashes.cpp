@@ -1,18 +1,5 @@
+#include "../math/PowerAndMul.cpp"
 const int P = 239017, MOD_X = 1e9 + 7, MOD_Y = 1e9 + 9;
-
-inline int add(int a, int b, int m) {
-	a += b;
-	return a >= m ? a - m : a;
-}
-
-inline int sub(int a, int b, int m) {
-	a -= b;
-	return a < 0 ? a + m : a;
-}
-
-inline int mul(int a, int b, int m) {
-	return (a * 1ll * b) % m;
-}
 
 // using H = unsigned long long;
 struct H {
@@ -32,7 +19,7 @@ inline H get(int l, int r) { return h[r] - h[l] * p[r - l]; }
 
 void init(const string& s) {
 	int n = sz(s);
-	deg[0] = 1;
+	p[0] = 1;
 	forn (i, n)
 		h[i + 1] = h[i] * P + s[i], p[i + 1] = p[i] * P;
 }

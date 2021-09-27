@@ -1,5 +1,5 @@
-int win[MAX_N], lose[MAX_N], outDeg[MAX_N];
-vi rg[MAX_N];
+int win[N], lose[N], outDeg[N];
+vi rg[N];
 
 void retro(int n) {
 	queue<int> q;

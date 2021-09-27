@@ -16,7 +16,7 @@ inline int getSize(Node* root) { return root ? root->size : 0; }
 
 inline void recalc(Node* root) { root->size = getSize(root->l) + getSize(root->r) + 1; }
 
-set<pair<int, Node*>> edges[MAX_N];
+set<pair<int, Node*>> edges[N];
 
 Node* merge(Node *a, Node *b) {
 	if (!a) return b;

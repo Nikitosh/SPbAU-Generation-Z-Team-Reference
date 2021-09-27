@@ -1,8 +1,8 @@
-// MAXVAR - 2 * vars
-int cntVar = 0, val[MAXVAR], usedSat[MAXVAR], comp[MAXVAR];
+// VAR - 2 * vars
+int cntVar = 0, val[VAR], usedSat[VAR], comp[VAR];
 vi topsortSat;
  
-vi g[MAXVAR], rg[MAXVAR];
+vi g[VAR], rg[VAR];
  
 inline int newVar() {
 	cntVar++;

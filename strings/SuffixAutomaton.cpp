@@ -1,15 +1,14 @@
 struct Vx {
-    static const int AL = 26;
     int len, suf;
-    int next[AL];
+    int next[ALPHA];
     Vx() {}
     Vx(int l, int s): len(l), suf(s) {}
 };
 
 struct SA {
-    static const int MAX_LEN = 1e5 + 100, MAX_V = 2 * MAX_LEN;
+    static const int V = 2 * LEN;
     int last, vcnt;
-    Vx v[MAX_V];
+    Vx v[V];
 
     SA() { vcnt = 1, last = newV(0, 0); } // root = vertex with number 1
     int newV(int len, int suf){

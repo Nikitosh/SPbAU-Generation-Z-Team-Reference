@@ -1,6 +1,6 @@
-int t[4 * MAX_N], tSize = 1;
+int t[4 * N], tSize = 1;
 
-// find position > pos with val > x
+// Find position > pos with val > x.
 int nextGreaterX(int v, int l, int r, int pos, int x) {
 	if (r <= pos + 1 || t[v] <= x) return INF;
 	if (v >= tSize) return v - tSize;

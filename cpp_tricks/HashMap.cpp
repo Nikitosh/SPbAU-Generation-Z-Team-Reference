@@ -9,7 +9,7 @@ struct chash { // To use most bits rather than just the lowest ones:
 };
 template<class K, class V> using ht = gp_hash_table<K, V, chash>;
 template<class K, class V> V get(ht<K, V>& u, K x) {
-	return u.find(x) == end(u) ? 0 : u[x]; 
+	auto it = u.find(x); return it == end(u) ? 0 : it->snd;
 }
 
 ht<ll, int> h({}, {}, {}, {}, {1<<20});

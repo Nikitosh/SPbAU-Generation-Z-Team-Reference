@@ -1,5 +1,5 @@
 int gray(int n) {
-	return n ^ (n >> 1); 					
+	return n ^ (n >> 1);
 }
 
 int revGray(int n) {

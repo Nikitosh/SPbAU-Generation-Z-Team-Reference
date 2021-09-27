@@ -1,5 +1,5 @@
-int d[MAX_N][MAX_N], p[MAX_N][MAX_N];
-vi g[MAX_N], ans;
+int d[N][N], p[N][N];
+vi g[N], ans;
 
 struct Edge {
 	int a, b, w;

@@ -1,7 +1,7 @@
 // sz(LEFT) = n, sz(RIGHT) = m
 // numbered consequently
-int n, m, paired[2 * MAX_N], used[2 * MAX_N];
-vi g[MAX_N];
+int n, m, paired[2 * N], used[2 * N];
+vi g[N];
 
 bool dfs(int v) {
 	if (used[v]) return false;

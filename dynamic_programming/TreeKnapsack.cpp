@@ -1,5 +1,5 @@
-int dp[MAX_N][MAX_N], a[MAX_N];
-vi g[MAX_N];
+int dp[N][N], a[N];
+vi g[N];
 
 int dfs(int v, int n) {
 	forn (i, n + 1)

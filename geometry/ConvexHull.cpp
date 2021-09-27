@@ -1,6 +1,6 @@
-typedef vector<Pnt> vpnt;
+using vpnt = vector<Pnt>;
 
-inline bool byAngle(const Pnt &a, const Pnt &b) {
+inline bool byAngle(const Pnt& a, const Pnt& b) {
 	dbl x = a % b;
 	return eq(x, 0) ? a.len2() < b.len2() : x < 0;
 }

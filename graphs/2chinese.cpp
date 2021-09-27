@@ -1,27 +1,27 @@
 struct Edge {
     int fr, to, w, id;
-    bool operator < (const Edge& o) const { return w < o.w; }
+    bool operator<(const Edge& o) const { return w < o.w; }
 };
 
 // find oriented mst (tree)
 // there are no edge --> root (root is 0)
 // 0 .. n - 1, weights and vertices will be changed, but ids are ok
 vector<Edge> work(const vector<vector<Edge>>& graph) {
-    int n = (int) graph.size();
-    vector<int> color(n), used(n, -1);
-    for (int i = 0; i < n; i++)
+    int n = sz(graph);
+    vi color(n), used(n, -1);
+    forn (i, n)
         color[i] = i;
     vector<Edge> e(n);
-    for (int i = 0; i < n; i++) {
-        if (graph[i].empty()) {
+    forn (i, n) {
+        if (graph[i].empty()) 
             e[i] = {-1, -1, -1, -1};
-        } else {
+        else 
             e[i] = *min_element(graph[i].begin(), graph[i].end());
-        }
+        
     }
-    vector<vector<int>> cycles;
+    vector<vi> cycles;
     used[0] = -2;
-    for (int s = 0; s < n; s++) {
+    forn (s, n) {
         if (used[s] != -1)
             continue;
         int x = s;
@@ -31,7 +31,7 @@ vector<Edge> work(const vector<vector<Edge>>& graph) {
         }
         if (used[x] != s)
             continue;
-        vector<int> cycle = {x};
+        vi cycle = {x};
         for (int y = e[x].fr; y != x; y = e[y].fr)
             cycle.push_back(y), color[y] = x;
         cycles.push_back(cycle);
@@ -39,7 +39,7 @@ vector<Edge> work(const vector<vector<Edge>>& graph) {
     if (cycles.empty())
         return e;
     vector<vector<Edge>> next_graph(n);
-    for (int s = 0; s < n; s++) {
+    forn (s, n) {
         for (const Edge& edge : graph[s]) {
             if (color[edge.fr] != color[s])
                 next_graph[color[s]].push_back({

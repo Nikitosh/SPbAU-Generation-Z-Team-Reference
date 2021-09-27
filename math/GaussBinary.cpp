@@ -14,7 +14,7 @@ int gaussBinary(vector<bitset<MAX>> a, int n, int m) {
 		swap(a[row], a[best]);
 		forn (i, n)
 			if (i != row && a[i][col])
-					a[i] ^= a[row];
+				a[i] ^= a[row];
 		row++;
 	}
 	vi ans(m, 0);

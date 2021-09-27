@@ -1,6 +1,6 @@
-vi g[MAX_N];
-int size[MAX_N], comp[MAX_N], num[MAX_N], top[MAX_N], pr[MAX_N], tin[MAX_N], tout[MAX_N];
-vi t[MAX_N], toPush[MAX_N], lst[MAX_N];
+vi g[N];
+int size[N], comp[N], num[N], top[N], pr[N], tin[N], tout[N];
+vi t[N], toPush[N], lst[N];
 int curPath = 0, curTime = 0;
 
 void pushST(int path, int v, int vl, int vr) {

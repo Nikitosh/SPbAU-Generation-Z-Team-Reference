@@ -1,4 +1,4 @@
-int pr[MAX_N]; 	
+int pr[N]; 	
 
 int get(int v) {
 	return v == pr[v] ? v : pr[v] = get(pr[v]);

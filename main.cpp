@@ -13,20 +13,22 @@ using namespace std;
 #define all(c) (c).begin(), (c).end() 
  
 using ll = long long;
+using ull = unsigned long long;
 using dbl = double;
 using vi = vector<int>;
 using vll = vector<ll>;
 using pii = pair<int, int>;
 using ld = long double;
  
-const int MAXVAR = 100;
-const int LOG = 15;
-const int MAX_LOG = 10;
-const int MAX_M = 1e3; 
-const int MAX_N = (1 << MAX_LOG);
-const int MAX_MASK = 15;
+const int LOG = 10;
+const int M = 1e3; 
+const int N = (1 << LOG);
+const int MASK = 15;
 const int INF = 1e9;
 const int INF_LOG = 30;
+const int ALPHA = 26;
+const int VAR = 100;
+const int LEN = 1e4;
 const double PI = acos(-1);
 
 namespace big_int {
@@ -38,11 +40,8 @@ namespace fft {
 }
 
 #include "cpp_tricks/Allocation.cpp"
-namespace fast_io_long {
-#include "cpp_tricks/FastIOLong.cpp"
-}
-namespace fast_io_short {
-#include "cpp_tricks/FastIOShort.cpp"
+namespace fast_io {
+#include "cpp_tricks/FastIO.cpp"
 }
 #include "cpp_tricks/HashMap.cpp"
 #include "cpp_tricks/OrderedSet.cpp"
@@ -201,11 +200,15 @@ namespace geometry {
 #include "geometry/GeometryBase.cpp"
 #include "geometry/GeometrySimple.cpp"
 #include "geometry/GeometryInterTangent.cpp"
+#include "geometry/HalfplanesIntersection.cpp"
 #include "geometry/ConvexHull.cpp"
 }
 namespace closest_points{
 #include "geometry/ClosestPoints_SweepLine.cpp"
 }
+
+// TODO: Test IO
+// TODO: Test Pollard
 
 int main() {
 	return 0;

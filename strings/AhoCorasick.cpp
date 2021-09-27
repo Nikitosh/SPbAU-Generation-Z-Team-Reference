@@ -1,6 +1,3 @@
-const int ALPHA = 26;
-const int MAX_N = 1e5;
-
 struct Node {
 	int next[ALPHA], term; // Бор
 	int go[ALPHA], suf, p, pCh; // Автомат
@@ -10,7 +7,7 @@ struct Node {
 	}
 };
 
-Node g[MAX_N];
+Node g[N];
 int last;
 
 void add(const string &s) {

@@ -1,6 +1,6 @@
-int rev[MAX_N];
+int rev[N];
 
-//typedef complex<dbl> Num;
+//using Num = complex<dbl>;
 struct Num {
 	dbl x, y;
 	Num() {}
@@ -16,7 +16,7 @@ struct Num {
 	inline void operator*=(const Num &B) { *this = *this * B; }
 };
 
-Num rt[MAX_N];
+Num rt[N];
 
 inline Num sqr(const Num &x) { return x * x; }
 inline Num conj(const Num &x) { return Num(x.real(), -x.imag()); }
@@ -30,7 +30,7 @@ inline int getN(int n) {
 
 void fft(Num *a, int n) {
 	assert(rev[1]); // don't forget to init
-	int q = MAX_N / n;
+	int q = N / n;
 	forn (i, n)
 		if(i < rev[i] / q)
 			swap(a[i], a[rev[i] / q]);
@@ -60,7 +60,7 @@ void doubleFft(Num *a, Num *fa, Num *fb, int n) { // only if you need it
 	}
 }
 
-Num tmp[MAX_N];
+Num tmp[N];
 template<class T>
 void mult(T *a, T *b, T *r, int n) { // n = 2^k
 	forn (i, n)
@@ -80,7 +80,7 @@ void mult(T *a, T *b, T *r, int n) { // n = 2^k
 }                  
 
 void init() { // don't forget to init
-	forn(i, MAX_N)
+	forn(i, N)
 		rev[i] = (rev[i >> 1] >> 1) + ((i & 1) << (LOG - 1));
 
 	rt[1] = Num(1, 0);

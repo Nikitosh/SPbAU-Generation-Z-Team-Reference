@@ -1,4 +1,4 @@
-Num ta[MAX_N], tb[MAX_N], tf[MAX_N], tg[MAX_N];
+Num ta[N], tb[N], tf[N], tg[N];
 
 const int HALF = 15;
 
@@ -33,7 +33,7 @@ void mult(int *a, int *b, int *r, int n, int mod) {
 	}
 }
 
-int tc[MAX_N], td[MAX_N];
+int tc[N], td[N];
 
 const int MOD1 = 1.5e9, MOD2 = MOD1 + 1;
 void multLL(int *a, int *b, ll *r, int n){

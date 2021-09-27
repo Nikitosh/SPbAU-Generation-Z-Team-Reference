@@ -1,4 +1,4 @@
-int pr[MAX_N], d[MAX_N], q[MAX_N], first[MAX_N];
+int pr[N], d[N], q[N], first[N];
 
 int dfs(int v, int can, int toPush, int t) {
 	if (v == t) return can;

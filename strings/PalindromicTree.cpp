@@ -1,13 +1,11 @@
-const int ALPHA = 26;
-
 struct Vertex {
 	int suf, len, next[ALPHA];
 	Vertex() { fill(next, next + ALPHA, 0); }
 };
 
 int vn, v;
-Vertex t[MAX_N + 2];
-int n, s[MAX_N];
+Vertex t[N + 2];
+int n, s[N];
 
 int get(int i) { return i < 0 ? -1 : s[i]; }
 

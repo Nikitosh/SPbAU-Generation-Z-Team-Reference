@@ -1,5 +1,3 @@
-const int N = 2e5;
-
 struct Pnt {
 	int x, y, i;
 	bool operator <(const Pnt &p) const { return mp(y, i) < mp(p.y, p.i); }

@@ -1,4 +1,4 @@
-int t[MAX_N];
+int t[N];
 
 int get(int ind) {
 	int res = 0;

@@ -5,7 +5,7 @@ struct Edge {
 };
 
 vector<Edge> edges; 
-vi g[MAX_N], res, ptr;
+vi g[N], res, ptr;
 // don't forget to clear ptr!
 
 void dfs(int v) {

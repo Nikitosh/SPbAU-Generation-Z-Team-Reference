@@ -1,4 +1,4 @@
-ll a[4][MAX_N][MAX_N];
+ll a[4][N][N];
 int n, m;
 
 inline int f(int x) { return x & ~(x - 1); }

@@ -1,5 +1,5 @@
-vi g[MAX_N], q[MAX_N];
-int pr[MAX_N], ancestor[MAX_N], used[MAX_N];
+vi g[N], q[N];
+int pr[N], ancestor[N], used[N];
 
 int get(int v) {
 	return v == pr[v] ? v : pr[v] = get(pr[v]);

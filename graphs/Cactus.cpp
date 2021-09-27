@@ -1,4 +1,4 @@
-int used[MAX_N];
+int used[N];
 
 struct Edge {
  	ll l;
@@ -6,9 +6,8 @@ struct Edge {
  	Edge(int _l): l(_l) {}
 };
 
-vector<pair<int, Edge>> g[MAX_N], rev[MAX_N];
-pair<int, Edge> pr[MAX_N];
-vector<pair<int, Edge>> path; 	
+vector<pair<int, Edge>> g[N], rev[N], path;
+pair<int, Edge> pr[N];
 
 void dfsInit(int v, int p, Edge prE) {
 	used[v] = 1;

@@ -1,4 +1,4 @@
-int used[MAX_N], pr[MAX_N], d[MAX_N], q[MAX_N], maxFlow[MAX_N];
+int used[N], pr[N], d[N], q[N], maxFlow[N];
 
 int edmondsKarp(int n, int s, int t) {
 	int ansFlow = 0;

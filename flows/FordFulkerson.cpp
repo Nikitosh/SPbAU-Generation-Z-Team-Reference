@@ -1,4 +1,4 @@
-int used[MAX_N], pr[MAX_N];
+int used[N], pr[N];
 int curTime = 1;
 
 int dfs(int v, int can, int toPush, int t) {

@@ -1,25 +1,13 @@
-vector <int> primes = {2, 3, 5, 7, 11, 13, 17, 19, 23};
-
-bool isPrimeMillerRabin(ll n) {
-	int k = 0;
-	ll t = n - 1;
-	while (t % 2 == 0) k++, t /= 2;
-	for (auto p : primes) {
-		ll g = __gcd(n, (ll) p);
-		if (g > 1 && g < n) return 0;
-		if (g == n) return 1;
-		ll b = powerLL(p, t, n), last = n - 1;
-		bool was = 0;
-		forn (i, k + 1) {
-			if (b == 1 && last != n - 1)
-				return 0;
-			if (b == 1) {
-				was = 1;
-				break;	
-			}
-			last = b, b = mul(b, b, n);
-		}
-		if (!was) return 0;
+bool isPrimeMillerRabin(ull n) { // not ll!
+	if (n < 2 || n % 6 % 4 != 1) 
+		return n - 2 < 2;
+	ull A[] = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};
+	ull s = __builtin_ctzll(n - 1), d = n >> s;
+	for (ull a : A) {   // ^ count trailing zeroes
+		ull p = power(a, d, n), i = s;
+		while (p != 1 && p != n - 1 && a % n && i--) 
+			p = mul(p, p, n);
+		if (p != n - 1 && i != s) return 0;
 	}
 	return 1;
 }

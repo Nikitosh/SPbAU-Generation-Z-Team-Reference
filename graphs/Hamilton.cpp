@@ -1,6 +1,6 @@
 // DP in O(n*2^n) for Ham cycle
-vi g[MAX_MASK];
-int adj[MAX_MASK], dp[1 << MAX_MASK];
+vi g[MASK];
+int adj[MASK], dp[1 << MASK];
 
 vi hamiltonCycle(int n) {
 	fill(dp, dp + (1 << n), 0);

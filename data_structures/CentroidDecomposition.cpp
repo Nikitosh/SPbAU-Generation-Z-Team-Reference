@@ -1,6 +1,6 @@
-vi g[MAX_N];
-int d[MAX_N], par[MAX_N], centroid; 
-//d и par - в дереве центроидов
+vi g[N];
+int d[N], par[N], centroid; 
+//d and par - in centroid tree
 
 int find(int v, int p, int total) {
 	int size = 1, ok = 1;

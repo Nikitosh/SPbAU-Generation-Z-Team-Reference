@@ -1,4 +1,4 @@
-int dp[(1 << MAX_MASK)][MAX_MASK];
+int dp[(1 << MASK)][MASK];
 
 void calcDP(int n) {
 	forn(mask, 1 << n) {

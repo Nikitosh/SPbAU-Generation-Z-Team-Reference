@@ -1,6 +1,5 @@
-int sLen, num[MAX_N + 1];
-char s[MAX_N + 1];
-int p[MAX_N], col[MAX_N], inv[MAX_N], lcp[MAX_N];
+int sLen, num[N + 1], p[N], col[N], inv[N], lcp[N];
+char s[N + 1];
 
 inline int add(int a, int b) {
 	a += b;

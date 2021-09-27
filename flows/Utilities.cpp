@@ -1,4 +1,4 @@
-vi g[MAX_N];
+vi g[N];
 
 // for directed unweighted graph
 struct Edge {
