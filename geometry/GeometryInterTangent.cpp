@@ -11,7 +11,7 @@ Pnt tangent(Pnt x, Circle y, int t = 0) {
 	if (y.r == 0) return y.p;
 	dbl d = (x - y.p).len();
 	Pnt a = (x - y.p) * pow(y.r / d, 2)  + y.p;
-	Pnt b = multBenq((x - y.p).unit() * sqrtl(d * d - y.r * y.r) / d * y.r, Pnt(0, 1)); 
+	Pnt b = ((x - y.p).getNorm() * sqrt(d * d - y.r * y.r) / d * y.r).bmul(Pnt(0, 1)); 
 	return t == 0 ? a+b : a-b;
 }
 
@@ -60,7 +60,7 @@ vector<Pnt> circle_circle(const Circle &x, const Circle &y) {
 	if (eq(d, 0)) { assert(a != b); return {}; }
 	dbl C = (a*a+d*d-b*b)/(2*a*d); 
 	if (abs(C) > 1+EPS) return {};
-	dbl S = sqrtl(max(1-C*C,(dbl)0)); Pnt tmp = (y.p-x.p)/d*x.r;
+	dbl S = sqrt(max(1-C*C,(dbl)0)); Pnt tmp = (y.p-x.p)/d*x.r;
 	if (eq(S, 0)) return {x.p+tmp.bmul(Pnt(C,0))};
 	return {x.p+tmp.bmul(Pnt(C,S)),x.p+tmp.bmul(Pnt(C,-S))};
 }
@@ -69,7 +69,7 @@ dbl circle_isect_area(const Circle &x, const Circle &y) {
 	dbl d = (x.p-y.p).len(), a = x.r, b = y.r; if (a < b) swap(a,b);
 	if (geq(d, a+b)) return 0;
 	if (leq(d, a-b)) return PI*b*b;
-	dbl ca = acosl((a*a+d*d-b*b)/(2*a*d)), cb = acosl((b*b+d*d-a*a)/(2*b*d));
+	dbl ca = acos((a*a+d*d-b*b)/(2*a*d)), cb = acos((b*b+d*d-a*a)/(2*b*d));
 	return (ca*a*a-0.5*a*a*sin(ca*2))+(cb*b*b-0.5*b*b*sin(cb*2));
 }
 
