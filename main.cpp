@@ -176,6 +176,9 @@ namespace math {
 #include "math/Pollard.cpp"
 #include "math/Simpson.cpp"
 }
+namespace simplex {
+#include "math/Simplex.cpp"
+}
 
 namespace aho_corasick {
 #include "strings/AhoCorasick.cpp"
