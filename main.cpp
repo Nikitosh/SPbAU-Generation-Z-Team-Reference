@@ -143,6 +143,9 @@ namespace karp {
 namespace kuhn {
 #include "graphs/Kuhn.cpp"
 }
+namespace matching {
+#include "graphs/Matching.cpp"
+}
 namespace lca {
 #include "graphs/Lca.cpp"
 }
@@ -212,9 +215,6 @@ namespace geometry {
 namespace closest_points{
 #include "geometry/ClosestPoints_SweepLine.cpp"
 }
-
-// TODO: Test IO
-// TODO: Test Pollard
 
 int main() {
 	return 0;
