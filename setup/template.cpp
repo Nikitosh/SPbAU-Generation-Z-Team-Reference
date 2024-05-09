@@ -20,11 +20,11 @@ using pii = pair<int, int>;
   
 int main() {
 #ifdef LOCAL    
-	freopen(FNAME".in", "r", stdin);
-	freopen(FNAME".out", "w", stdout); 
+  freopen(FNAME".in", "r", stdin);
+  freopen(FNAME".out", "w", stdout); 
 #endif    
-	cin.tie(0);
-	ios_base::sync_with_stdio(0);
-	
-	return 0;
+  cin.tie(0);
+  ios_base::sync_with_stdio(0);
+  
+  return 0;
 }

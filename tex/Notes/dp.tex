@@ -2,18 +2,18 @@
 \begin{table}[H]
 \centering
 \begin{tabular}[scale = 0.8]{|l|l|l|}
-	\hline
-	Name      & Original recurrence                                            & From               \\
-	          & Sufficient Condition                                           & To                 \\ \hline
-	CHT1      & $dp[i] = \min\limits_{j<i} dp[j] + b[j] \cdot a[i]$            & $O(n^2)$           \\   
-	          & $b[j] \geqslant b[j+1]\ ||\ a[i] \leqslant a[i+1]$             & $O(n)$             \\ \hline
-	CHT2      & $dp[i][j] = \min\limits_{k<j} dp[i-1][k] + b[k] \cdot a[j]$    & $O(kn^2)$          \\ 
-	          & $b[k] \geqslant b[k+1]\ ||\ a[j] \leqslant a[j+1]$             & $O(kn)$            \\ \hline
-	D\&C      & $dp[i][j] = \min\limits_{k<j} dp[i-1][k] + c[k][j]$            & $O(kn^2)$          \\ 
-	          & $p[i,j] \leqslant p[i, j+1]$                                   & $O(kn \log n)$     \\ \hline
-	Knuth     & $dp[i][j] = \min\limits_{i<k<j} dp[i][k] + dp[k][j] + c[i][j]$ & $O(n^3)$           \\
-	          & $p[i, j-1] \leqslant p[i,j] \leqslant p[i+1, j]$               & $O(n^2)$           \\ \hline
-	IOI       & $f_n(k)$ --- best for fixed k                                  & $O(k^{(2)}n)$      \\
-	          & $f_n$    --- convex, add penalty $\lambda\cdot k$              & $O(n\log{C})$      \\ \hline
+  \hline
+  Name      & Original recurrence                                            & From               \\
+            & Sufficient Condition                                           & To                 \\ \hline
+  CHT1      & $dp[i] = \min\limits_{j<i} dp[j] + b[j] \cdot a[i]$            & $O(n^2)$           \\   
+            & $b[j] \geqslant b[j+1]\ ||\ a[i] \leqslant a[i+1]$             & $O(n)$             \\ \hline
+  CHT2      & $dp[i][j] = \min\limits_{k<j} dp[i-1][k] + b[k] \cdot a[j]$    & $O(kn^2)$          \\ 
+            & $b[k] \geqslant b[k+1]\ ||\ a[j] \leqslant a[j+1]$             & $O(kn)$            \\ \hline
+  D\&C      & $dp[i][j] = \min\limits_{k<j} dp[i-1][k] + c[k][j]$            & $O(kn^2)$          \\ 
+            & $p[i,j] \leqslant p[i, j+1]$                                   & $O(kn \log n)$     \\ \hline
+  Knuth     & $dp[i][j] = \min\limits_{i<k<j} dp[i][k] + dp[k][j] + c[i][j]$ & $O(n^3)$           \\
+            & $p[i, j-1] \leqslant p[i,j] \leqslant p[i+1, j]$               & $O(n^2)$           \\ \hline
+  IOI       & $f_n(k)$ --- best for fixed k                                  & $O(k^{(2)}n)$      \\
+            & $f_n$    --- convex, add penalty $\lambda\cdot k$              & $O(n\log{C})$      \\ \hline
 \end{tabular}
 \end{table}

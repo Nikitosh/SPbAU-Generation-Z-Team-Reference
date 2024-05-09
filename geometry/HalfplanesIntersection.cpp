@@ -15,14 +15,12 @@ bool angLess(int i, int j) { return ang[i] < ang[j]; }
 
 void Unique() {
   int i = 0, k2 = 0;
-  while (i < k)
-  {
+  while (i < k) {
     int ma = ind[i], st_ = i;
     Pnt no_ = Norm(ma);
-
-    for (i++; i < k && fabs(ang[ind[st_]] - ang[ind[i]]) < EPS; i++)
-      if ((no_ * p[a[ma]]) < (no_ * p[a[ind[i]]]))
-        ma = ind[i];
+    for (i++; i < k && fabs(ang[ind[st_]] - ang[ind[i]]) < EPS; i++) {
+      if ((no_ * p[a[ma]]) < (no_ * p[a[ind[i]]])) ma = ind[i];
+    }
     ind[k2++] = ma;
   }
   k = k2;
@@ -54,8 +52,7 @@ void TryShiftPoint(int i, int j, dbl step) {
 
   forn (g, k) {
     BUILD(a1, b1, c1, ind[g]);
-    if (a1 * xx + b1 * yy + c1 < EPS)
-      return;
+    if (a1 * xx + b1 * yy + c1 < EPS) return;
   }
 
   puts("Possible");
@@ -66,11 +63,8 @@ void TryShiftPoint(int i, int j, dbl step) {
 void PushPlaneIntoStack(int i) {
   while (sp >= 2 && ang[i] - ang[ss[sp - 2]] + EPS < M_PI){
     FindPoint(i, ss[sp - 2]);
-
     BUILD(a1, b1, c1, ss[sp - 1]);
-    if ((a1 * xx + b1 * yy + c1) < -EPS)
-      break;
-
+    if ((a1 * xx + b1 * yy + c1) < -EPS) break;
     sp--;
   }
   ss[sp++] = i;
@@ -78,22 +72,22 @@ void PushPlaneIntoStack(int i) {
 
 void solve() {
   cin >> n;
-  forn (i, n)
-    cin >> p[i].x >> p[i].y;
+  forn (i, n) cin >> p[i].x >> p[i].y;
   p[n] = p[0];
 
   // Find set of planes
-  forn (i, sp)
+  forn (i, sp) {
     AddPlane(max(ss[i], ss[i + 1]), min(ss[i], ss[i + 1]));
-  forn (i, n - 1)
+  }
+  forn (i, n - 1) {
     AddPlane(i + 1, i);
+  }
   sort(ind, ind + k, angLess);
   
   int oldK = k;
   Unique();
 
-  forn (i, oldK)
-    no[i] = i;
+  forn (i, oldK) no[i] = i;
   forn (i, k){
     int j = oldK + i, x = ind[i];
     ang[j] = ang[x] + 2 * M_PI;
@@ -103,12 +97,14 @@ void solve() {
   }
 
   sp = 0;
-  forn (i, 2 * k)
+  forn (i, 2 * k) {
     PushPlaneIntoStack(ind[i]);
-  forn (t, sp)
-    if (++cnt[no[ss[t]]] > 1){
+  }
+  forn (t, sp) {
+    if (++cnt[no[ss[t]]] > 1) {
       TryShiftPoint(ss[t], ss[t - 1], 1e-5);
       break;
     }
+  }
 }
 }

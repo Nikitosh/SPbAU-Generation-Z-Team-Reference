@@ -15,7 +15,7 @@ $dp[mask][len] = g[mask]$.
 
 \begin{minted}[mathescape,tabsize=2,breaklines=true]{cpp}
 for (int mask = 0; mask < (1 << n); mask++)
-	submask : for (int s = mask; s; s = (s - 1) & mask)
-	supmask : for (int s = mask; s < (1 << n); s = (s + 1) | mask)
+  submask : for (int s = mask; s; s = (s - 1) & mask)
+  supmask : for (int s = mask; s < (1 << n); s = (s + 1) | mask)
 \end{minted}
 
